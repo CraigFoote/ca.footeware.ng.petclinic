@@ -9,19 +9,19 @@ import { Procedure } from '../model/procedure';
 import { PetService } from '../pet.service';
 
 @Component({
-  selector: 'app-procedures',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule],
-  providers: [PetService],
-  templateUrl: './procedures.component.html',
-  styleUrl: './procedures.component.css'
+    selector: 'app-procedures',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [PetService],
+    templateUrl: './procedures.component.html',
+    styleUrl: './procedures.component.css'
 })
 export class ProceduresComponent implements OnInit {
 

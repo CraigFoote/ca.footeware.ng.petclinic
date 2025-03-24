@@ -9,19 +9,19 @@ import { Vet } from '../model/vet';
 import { PetService } from '../pet.service';
 
 @Component({
-  selector: 'app-vets',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule],
-  providers: [PetService],
-  templateUrl: './vets.component.html',
-  styleUrl: './vets.component.css',
+    selector: 'app-vets',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [PetService],
+    templateUrl: './vets.component.html',
+    styleUrl: './vets.component.css'
 })
 export class VetsComponent implements OnInit {
 

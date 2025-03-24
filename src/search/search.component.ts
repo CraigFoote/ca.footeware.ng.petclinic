@@ -5,12 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { PetService } from '../pet.service';
 
 @Component({
-  selector: 'app-search',
-  standalone: true,
-  imports: [MatInputModule, MatFormFieldModule, FormsModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.css'
+    selector: 'app-search',
+    imports: [MatInputModule, MatFormFieldModule, FormsModule],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    templateUrl: './search.component.html',
+    styleUrl: './search.component.css'
 })
 export class SearchComponent {
 

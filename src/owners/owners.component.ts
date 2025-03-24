@@ -16,27 +16,26 @@ import { Owner } from '../model/owner';
 import { Province } from '../model/province';
 
 @Component({
-  selector: 'app-owners',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatSelectModule
-  ],
-  providers: [PetService,
-    provideNativeDateAdapter(),
-    { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
-  ],
-  templateUrl: './owners.component.html',
-  styleUrl: './owners.component.css'
+    selector: 'app-owners',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatSelectModule
+    ],
+    providers: [PetService,
+        provideNativeDateAdapter(),
+        { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
+    ],
+    templateUrl: './owners.component.html',
+    styleUrl: './owners.component.css'
 })
 export class OwnersComponent implements OnInit {
 

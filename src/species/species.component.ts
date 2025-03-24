@@ -9,19 +9,19 @@ import { Species } from '../model/species';
 import { PetService } from '../pet.service';
 
 @Component({
-  selector: 'app-species',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule],
-  providers: [PetService],
-  templateUrl: './species.component.html',
-  styleUrl: './species.component.css'
+    selector: 'app-species',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
+    providers: [PetService],
+    templateUrl: './species.component.html',
+    styleUrl: './species.component.css'
 })
 export class SpeciesComponent implements OnInit {
 
