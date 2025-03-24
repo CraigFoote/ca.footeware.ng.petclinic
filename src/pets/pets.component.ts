@@ -19,27 +19,26 @@ import { Gender } from '../model/gender';
 
 
 @Component({
-  selector: 'app-pets',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatSelectModule
-  ],
-  providers: [PetService,
-    provideNativeDateAdapter(),
-    { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
-  ],
-  templateUrl: './pets.component.html',
-  styleUrl: './pets.component.css'
+    selector: 'app-pets',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatSelectModule
+    ],
+    providers: [PetService,
+        provideNativeDateAdapter(),
+        { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
+    ],
+    templateUrl: './pets.component.html',
+    styleUrl: './pets.component.css'
 })
 export class PetsComponent implements OnInit {
 

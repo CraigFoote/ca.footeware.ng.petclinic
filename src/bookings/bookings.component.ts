@@ -19,27 +19,26 @@ import { Procedure } from '../model/procedure';
 import { Vet } from '../model/vet';
 
 @Component({
-  selector: 'app-bookings',
-  standalone: true,
-  imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatSelectModule
-  ],
-  providers: [PetService,
-    provideNativeDateAdapter(),
-    { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
-  ],
-  templateUrl: './bookings.component.html',
-  styleUrl: './bookings.component.css'
+    selector: 'app-bookings',
+    imports: [
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatSlideToggleModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatSelectModule
+    ],
+    providers: [PetService,
+        provideNativeDateAdapter(),
+        { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
+    ],
+    templateUrl: './bookings.component.html',
+    styleUrl: './bookings.component.css'
 })
 export class BookingsComponent implements OnInit {
 
