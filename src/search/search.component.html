@@ -1,0 +1,10 @@
+<img src="../assets/images/vetPets.png" class="center" alt="vet pets" />
+
+<form class="center" (ngSubmit)="onSubmit(search.value)">
+    <mat-form-field style="width: 100%;">
+        <mat-label>Search</mat-label>
+        <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. Spot" name="search"
+            [(ngModel)]="searchTerm" />
+        <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
+    </mat-form-field>
+</form>

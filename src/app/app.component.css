@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.page-title {
+    font-family: "abkk";
+    font-size: 2em;
+    color: #181926;
+}
+
+.mat-toolbar {
+    padding: 10px;
+    background-color: #949cbb;
+    border-bottom: 3px solid #626880;
+}
+
+.mat-toolbar-row {
+    justify-content: center;
+}
+
+nav a {
+    margin: 5px;
+    color: #626880;
+    text-decoration: none;
+    font-family: "decker";
+    font-size: 1.3em;
+}
+
+nav li {
+    list-style-type: none;
+    display: inline;
+}
+
+nav button {
+    margin: 5px;
+    color: #626880;
+    font-family: "decker";
+    font-size: 1.3em;
+}

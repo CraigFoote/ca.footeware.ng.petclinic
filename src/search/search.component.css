@@ -1,0 +1,12 @@
+img {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+form {
+    min-width: 150px;
+    max-width: 600px;
+    width: 60%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+@charset "UTF-8";
+
+@font-face {
+    font-family: "abkk";
+    src: url(../public/assets/fonts/AustieBostKittenKlub.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "decker";
+    src: url(../public/assets/fonts/Decker.ttf) format("truetype");
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #acb0be;
+}
+
+body {
+    margin: 0;
+    font-family: "decker", sans-serif;
+    font-size: 20px;
+}
+
+.center {
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
