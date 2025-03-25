@@ -59,6 +59,10 @@ export class EditPetFormComponent implements OnChanges {
         });
     }
 
+    setMode(mode: string) {
+        this.cancelClicked.emit(mode);
+    }
+
     ngOnChanges(changes: SimpleChanges): void {
         if (this.pet && this.allSpecies && this.owners) {
             const selectedSpecies = this.allSpecies.find(s => s.name === this.pet?.species.name);
@@ -73,19 +77,7 @@ export class EditPetFormComponent implements OnChanges {
         }
     }
 
-    setMode(mode: string) {
-        this.cancelClicked.emit(mode);
-    }
-
     updatePet() {
-        this.pet = {
-            id: this.pet?.id,
-            name: this.editPetForm.value.name,
-            species: this.editPetForm.value.species,
-            gender: this.editPetForm.value.gender,
-            birthDate: this.editPetForm.value.birthDate,
-            owner: this.editPetForm.value.owner
-        };
-        this.saveClicked.emit(this.pet);
+        this.saveClicked.emit(this.editPetForm.value);
     }
 }

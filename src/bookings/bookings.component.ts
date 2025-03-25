@@ -11,7 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
-import { PetService } from '../pet.service';
+import { PetService } from '../services/pet.service';
 import { Province } from '../model/Province';
 import { Booking } from '../model/Booking';
 import { PetDTO } from '../model/PetDTO';

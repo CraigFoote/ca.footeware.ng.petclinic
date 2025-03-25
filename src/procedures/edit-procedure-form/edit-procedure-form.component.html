@@ -1,0 +1,18 @@
+<mat-card appearance="raised" class="center card">
+    <mat-card-content>
+        <form [formGroup]="editProcedureForm" (ngSubmit)="updateProcedure()">
+            <input type="hidden" name="id" formControlName="id" />
+            <mat-form-field class="form-input">
+                <mat-label>Name</mat-label>
+                <input matInput required minlength="1" maxlength="24" name="name" formControlName="name" />
+            </mat-form-field><br />
+            <mat-form-field class="form-input">
+                <mat-label>Cost</mat-label>
+                <input matInput type="number" required min="1" max="200" name="cost" formControlName="cost" />
+            </mat-form-field><br />
+            <button mat-button type="submit" class="float-right" color="primary"
+                [disabled]="!editProcedureForm.valid">Save</button>
+            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
+        </form>
+    </mat-card-content>
+</mat-card>

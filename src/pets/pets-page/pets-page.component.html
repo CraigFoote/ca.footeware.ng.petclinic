@@ -10,7 +10,7 @@
 }
 
 @if (mode === 'add') {
-<app-add-pet-form [allSpecies]="allSpecies" [owners]="owners" (saveClicked)="addPet($event)"
+<app-add-pet-form [allSpecies]="allSpecies" [owners]="owners" (saveClicked)="createPet($event)"
     (cancelClicked)="setMode('list')" />
 }
 

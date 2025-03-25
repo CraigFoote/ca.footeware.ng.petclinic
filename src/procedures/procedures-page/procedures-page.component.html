@@ -1,0 +1,21 @@
+<h1 class="center">Procedures</h1>
+
+<img src="../assets/images/dogTiltingHead.png" class="center" alt="dog tilting head" />
+
+@if (mode == 'list'){
+<div class="center">
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Procedure</button>
+</div>
+
+<app-procedure-card [procedures]="procedures" (deleteClicked)="deleteProcedure($event)"
+    (editClicked)="editProcedure($event)" />
+}
+
+@if (mode === 'add') {
+<app-add-procedure-form (saveClicked)="createProcedure($event)" (cancelClicked)="setMode('list')" />
+}
+
+@if (mode === 'edit') {
+<app-edit-procedure-form [procedure]="procedure" (saveClicked)="updateProcedure($event)"
+    (cancelClicked)="setMode('list')" />
+}

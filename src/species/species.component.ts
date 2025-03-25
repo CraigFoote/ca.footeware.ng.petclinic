@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { Species } from '../model/Species';
-import { PetService } from '../pet.service';
+import { PetService } from '../services/pet.service';
 
 @Component({
     selector: 'app-species',

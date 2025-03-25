@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { Vet } from '../../model/Vet';
-import { PetService } from '../../pet.service';
+import { PetService } from '../../services/pet.service';
 import { VetCardComponent } from "../vet-card/vet-card.component";
 
 @Component({

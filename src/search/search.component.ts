@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { PetService } from '../pet.service';
+import { PetService } from '../services/pet.service';
 import { Pet } from '../model/Pet';
 
 @Component({
@@ -19,8 +19,7 @@ import { Pet } from '../model/Pet';
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './search.component.html',
-    styleUrl: './search.component.css',
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
+    styleUrl: './search.component.css'
 })
 export class SearchComponent {
 

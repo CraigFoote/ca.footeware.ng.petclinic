@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Species } from "./model/Species";
-import { Procedure } from "./model/Procedure";
-import { Vet } from "./model/Vet";
-import { Owner } from "./model/Owner";
-import { PetDTO } from "./model/PetDTO";
-import { Booking } from "./model/Booking";
+import { Species } from "../model/Species";
+import { Procedure } from "../model/Procedure";
+import { Vet } from "../model/Vet";
+import { Owner } from "../model/Owner";
+import { PetDTO } from "../model/PetDTO";
+import { Booking } from "../model/Booking";
 
 @Injectable({
     providedIn: 'root',

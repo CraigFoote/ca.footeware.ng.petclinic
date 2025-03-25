@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { SearchComponent } from '../search/search.component';
 import { PetsPageComponent } from '../pets/pets-page/pets-page.component';
 import { VetsPageComponent } from '../vets/vets-page/vets-page.component';
-import { ProceduresComponent } from '../procedures/procedures.component';
+import { ProceduresPageComponent } from '../procedures/procedures-page/procedures-page.component';
 import { SpeciesComponent } from '../species/species.component';
 import { OwnersComponent } from '../owners/owners.component';
 import { BookingsComponent } from '../bookings/bookings.component';
@@ -14,7 +14,7 @@ export const routes: Routes = [
     { path: 'vets', component: VetsPageComponent },
     { path: 'owners', component: OwnersComponent },
     { path: 'species', component: SpeciesComponent },
-    { path: 'procedures', component: ProceduresComponent },
+    { path: 'procedures', component: ProceduresPageComponent },
     { path: '', redirectTo: '/search', pathMatch: 'full' },
     { path: '**', component: SearchComponent },
 ];

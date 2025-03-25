@@ -7,12 +7,16 @@ img {
     text-align: center;
 }
 
+.left {
+    text-align: left;
+}
+
+.padded-left {
+    padding-left: 15%;
+}
+
 .form-input {
     width: 70%;
-    min-width: 450px;
-    max-width: 750px;
-    padding: 20px;
-    margin: 20px;
 }
 
 .card {
@@ -25,6 +29,11 @@ img {
     margin-right: auto;
 }
 
+ul>li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
 h1 {
     font-family: "abkk";
     margin-top: 20px;
@@ -32,8 +41,4 @@ h1 {
 
 .float-right {
     float: right;
-}
-
-.bold{
-    font-weight: bolder;
 }

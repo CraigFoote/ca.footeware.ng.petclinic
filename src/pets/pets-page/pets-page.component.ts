@@ -12,7 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PetDTO } from '../../model/PetDTO';
-import { PetService } from '../../pet.service';
+import { PetService } from '../../services/pet.service';
 import { Species } from '../../model/Species';
 import { Owner } from '../../model/Owner';
 import { Gender } from '../../model/Gender';
@@ -110,7 +110,7 @@ export class PetsPageComponent implements OnInit {
         });
     }
 
-    addPet(pet: Pet) {
+    createPet(pet: Pet) {
         const petDTO = new PetDTO(
             pet.name,
             pet.species.id,
