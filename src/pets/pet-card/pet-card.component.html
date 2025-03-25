@@ -1,0 +1,17 @@
+<mat-card *ngFor="let pet of pets" appearance="raised" class="card">
+    <mat-card-header>
+        <mat-card-title class="bold">{{pet.name}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content style="background-color: #b0bb94;">
+        <ul>
+            <li>{{pet.species.name}}</li>
+            <li>{{pet.gender}}</li>
+            <li>{{pet.birthDate | date}}</li>
+            <li>{{pet.owner.lastName}}, {{pet.owner.firstName}} ({{pet.owner.phone}})</li>
+        </ul>
+    </mat-card-content>
+    <mat-card-actions style="justify-content: flex-end;">
+        <button mat-button color="warn" class="float-right" (click)="deletePet(pet)">Delete</button>
+        <button mat-button color="primary" class="float-right" (click)="editPet(pet)">Edit</button>
+    </mat-card-actions>
+</mat-card>

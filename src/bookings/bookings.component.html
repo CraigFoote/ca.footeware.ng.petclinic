@@ -9,14 +9,14 @@
 <mat-card *ngFor="let booking of bookings" appearance="raised" class="card">
     <mat-card-header>
         <mat-card-title class="bold">{{booking.date | date}}</mat-card-title>
-        <mat-card-content>
-            <ul>
-                <li>{{getPetName(booking.petId)}}</li>
-                <li>{{getProcedureName(booking.procedureId)}}</li>
-                <li>{{getVetName(booking.vetId)}}</li>
-            </ul>
-        </mat-card-content>
     </mat-card-header>
+    <mat-card-content style="background-color: #b0bb94; padding: 10px;">
+        <ul>
+            <li>{{getPetName(booking.petId)}}</li>
+            <li>{{getProcedureName(booking.procedureId)}}</li>
+            <li>{{getVetName(booking.vetId)}}</li>
+        </ul>
+    </mat-card-content>
     <mat-card-actions style="justify-content: flex-end;">
         <button mat-button color="warn" class="float-right" (click)="deleteBooking(booking.id)">Delete</button>
         <button mat-button color="primary" class="float-right" (click)="editBooking(booking)">Edit</button>

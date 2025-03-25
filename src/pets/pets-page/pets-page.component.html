@@ -1,0 +1,20 @@
+<h1 class="center">Pets</h1>
+
+<img src="../assets/images/5pets.png" class="center" alt="5 pets" />
+
+@if (mode == 'list'){
+<div class="center">
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Pet</button>
+</div>
+<app-pet-card [pets]="pets" (deleteClicked)="deletePet($event)" (editClicked)="editPet($event)" />
+}
+
+@if (mode === 'add') {
+<app-add-pet-form [allSpecies]="allSpecies" [owners]="owners" (saveClicked)="addPet($event)"
+    (cancelClicked)="setMode('list')" />
+}
+
+@if (mode === 'edit') {
+<app-edit-pet-form [pet]="pet" [allSpecies]="allSpecies" [owners]="owners" (saveClicked)="updatePet($event)"
+    (cancelClicked)="setMode('list')" />
+}

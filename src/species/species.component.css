@@ -9,6 +9,10 @@ img {
 
 .form-input {
     width: 70%;
+    min-width: 450px;
+    max-width: 750px;
+    padding: 20px;
+    margin: 20px;
 }
 
 .card {
@@ -28,4 +32,8 @@ h1 {
 
 .float-right {
     float: right;
+}
+
+.bold{
+    font-weight: bolder;
 }

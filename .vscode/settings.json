@@ -1,6 +1,9 @@
 {
     "cSpell.words": [
+        "DTOs",
         "footeware",
         "petclinic"
-    ]
+    ],
+    "editor.mouseWheelZoom": true,
+    "window.zoomLevel": 0.5
 }

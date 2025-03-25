@@ -1,4 +1,4 @@
-import { Province } from "./province";
+import { Province } from "./Province";
 
 export class Owner {
     public id?: any;

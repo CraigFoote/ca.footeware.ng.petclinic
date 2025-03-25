@@ -12,8 +12,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
 import { PetService } from '../pet.service';
-import { Owner } from '../model/owner';
-import { Province } from '../model/province';
+import { Owner } from '../model/Owner';
+import { Province } from '../model/Province';
 
 @Component({
     selector: 'app-owners',

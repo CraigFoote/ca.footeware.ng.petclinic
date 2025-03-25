@@ -1,10 +1,30 @@
 <img src="../assets/images/vetPets.png" class="center" alt="vet pets" />
 
-<form class="center" (ngSubmit)="onSubmit(search.value)">
-    <mat-form-field style="width: 100%;">
+<form class="center" (ngSubmit)="submitSearch(search.value)">
+    <mat-form-field style="width: 100%;" class="form-input">
         <mat-label>Search</mat-label>
-        <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. Spot" name="search"
-            [(ngModel)]="searchTerm" />
+        <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. Rudy" name="search"
+            class="form-input" />
         <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
     </mat-form-field>
 </form>
+
+@for (pet of pets; track pet) {
+    <mat-card appearance="raised" class="card">
+        <mat-card-header>
+            <mat-card-title class="bold">{{pet.name}}</mat-card-title>
+            <mat-card-content>
+                <ul>
+                    <li>{{pet.species.name}}</li>
+                    <li>{{pet.gender}}</li>
+                    <li>{{pet.birthDate | date}}</li>
+                    <li>{{pet.owner.lastName}}, {{pet.owner.firstName}} ({{pet.owner.phone}})</li>
+                </ul>
+            </mat-card-content>
+        </mat-card-header>
+        <mat-card-actions style="justify-content: flex-end;">
+            <button mat-button color="warn" class="float-right" (click)="bookPet(pet.id)">Book</button>
+            <button mat-button color="primary" class="float-right" (click)="editPet(pet)">Edit</button>
+        </mat-card-actions>
+    </mat-card>
+}

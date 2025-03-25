@@ -1,26 +1,26 @@
-import { Owner } from "./owner";
-import { Species } from "./species";
-import { Gender } from '../model/gender';
+import { Owner } from "./Owner";
+import { Species } from "./Species";
+import { Gender } from './Gender';
 
 export class Pet {
 
     public id?: any;
     public name: string;
-    public speciesId: string;
+    public species: Species;
     public gender: Gender;
     public birthDate: Date;
-    public ownerId: string;
+    public owner: Owner;
 
     constructor(
         name: string,
-        speciesId: string,
+        species: Species,
         gender: Gender,
         birthDate: Date,
-        ownerId: string) {
+        owner: Owner) {
         this.name = name;
-        this.speciesId = speciesId;
+        this.species = species;
         this.gender = gender;
         this.birthDate = birthDate;
-        this.ownerId = ownerId;
+        this.owner = owner;
     }
 }

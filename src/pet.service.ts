@@ -1,155 +1,155 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Species } from "./model/species";
-import { Procedure } from "./model/procedure";
-import { Vet } from "./model/vet";
-import { Owner } from "./model/owner";
-import { Pet } from "./model/pet";
-import { Booking } from "./model/booking";
+import { Species } from "./model/Species";
+import { Procedure } from "./model/Procedure";
+import { Vet } from "./model/Vet";
+import { Owner } from "./model/Owner";
+import { PetDTO } from "./model/PetDTO";
+import { Booking } from "./model/Booking";
 
 @Injectable({
-  providedIn: 'root',
+    providedIn: 'root',
 })
 export class PetService {
-  
-  private host: string = 'http://localhost:9090';
-  
-  constructor(private http: HttpClient) { }
-  
-  search(term: string): Observable<any[]> {
-    return this.http.get<any>(this.host + '/search/' + term);
-  }
 
-  // VETS
+    private host: string = 'http://localhost:9090';
 
-  getVetById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/vets/' + id);
-  }
+    constructor(private http: HttpClient) { }
 
-  getAllVets(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/vets');
-  }
+    search(term: string): Observable<any[]> {
+        return this.http.get<any>(this.host + '/search/' + term);
+    }
 
-  insertVet(vet: Vet): Observable<any> {
-    return this.http.post<any>(this.host + '/vets', vet);
-  }
+    // VETS
 
-  deleteVet(id: string) {
-    return this.http.delete<any>(this.host + '/vets/' + id);
-  }
+    getVetById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/vets/' + id);
+    }
 
-  updateVet(id: string, vet: Vet): Observable<any> {
-    return this.http.put<any>(this.host + '/vets/' + id, vet);
-  }
+    getAllVets(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/vets');
+    }
 
-  // SPECIES
+    insertVet(vet: Vet): Observable<any> {
+        return this.http.post<any>(this.host + '/vets', vet);
+    }
 
-  getSpeciesById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/species/' + id);
-  }
+    deleteVet(id: string) {
+        return this.http.delete<any>(this.host + '/vets/' + id);
+    }
 
-  getAllSpecies(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/species');
-  }
+    updateVet(id: string, vet: Vet): Observable<any> {
+        return this.http.put<any>(this.host + '/vets/' + id, vet);
+    }
 
-  insertSpecies(species: Species): Observable<any> {
-    return this.http.post<any>(this.host + '/species', species);
-  }
+    // SPECIES
 
-  deleteSpecies(id: string) {
-    return this.http.delete<any>(this.host + '/species/' + id);
-  }
+    getSpeciesById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/species/' + id);
+    }
 
-  updateSpecies(id: string, species: Species): Observable<any> {
-    return this.http.put<any>(this.host + '/species/' + id, species);
-  }
+    getAllSpecies(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/species');
+    }
 
-  // PROCEDURES
+    insertSpecies(species: Species): Observable<any> {
+        return this.http.post<any>(this.host + '/species', species);
+    }
 
-  getProcedureById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/procedures/' + id);
-  }
+    deleteSpecies(id: string) {
+        return this.http.delete<any>(this.host + '/species/' + id);
+    }
 
-  getAllProcedures(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/procedures');
-  }
+    updateSpecies(id: string, species: Species): Observable<any> {
+        return this.http.put<any>(this.host + '/species/' + id, species);
+    }
 
-  insertProcedure(procedure: Procedure): Observable<any> {
-    return this.http.post<any>(this.host + '/procedures', procedure);
-  }
+    // PROCEDURES
 
-  deleteProcedure(id: string) {
-    return this.http.delete<any>(this.host + '/procedures/' + id);
-  }
+    getProcedureById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/procedures/' + id);
+    }
 
-  updateProcedure(id: string, procedure: Procedure): Observable<any> {
-    return this.http.put<any>(this.host + '/procedures/' + id, procedure);
-  }
+    getAllProcedures(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/procedures');
+    }
 
-  // PETS
+    insertProcedure(procedure: Procedure): Observable<any> {
+        return this.http.post<any>(this.host + '/procedures', procedure);
+    }
 
-  getPetById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/pets/' + id);
-  }
+    deleteProcedure(id: string) {
+        return this.http.delete<any>(this.host + '/procedures/' + id);
+    }
 
-  getAllPets(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/pets');
-  }
+    updateProcedure(id: string, procedure: Procedure): Observable<any> {
+        return this.http.put<any>(this.host + '/procedures/' + id, procedure);
+    }
 
-  insertPet(pet: Pet): Observable<any> {
-    return this.http.post<any>(this.host + '/pets', pet);
-  }
+    // PETS
 
-  deletePet(id: string) {
-    return this.http.delete<any>(this.host + '/pets/' + id);
-  }
+    getPetById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/pets/' + id);
+    }
 
-  updatePet(id: string, pet: Pet): Observable<any> {
-    return this.http.put<any>(this.host + '/pets/' + id, pet);
-  }
+    getAllPets(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/pets');
+    }
 
-  // OWNERS
+    insertPet(pet: PetDTO): Observable<any> {
+        return this.http.post<any>(this.host + '/pets', pet);
+    }
 
-  getOwnerById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/owners/' + id);
-  }
+    deletePet(id: string) {
+        return this.http.delete<any>(this.host + '/pets/' + id);
+    }
 
-  getAllOwners(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/owners');
-  }
+    updatePet(id: string, pet: PetDTO): Observable<any> {
+        return this.http.put<any>(this.host + '/pets/' + id, pet);
+    }
 
-  insertOwner(owner: Owner): Observable<any> {
-    return this.http.post<any>(this.host + '/owners', owner);
-  }
+    // OWNERS
 
-  deleteOwner(id: string) {
-    return this.http.delete<any>(this.host + '/owners/' + id);
-  }
+    getOwnerById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/owners/' + id);
+    }
 
-  updateOwner(id: string, owner: Owner): Observable<any> {
-    return this.http.put<any>(this.host + '/owners/' + id, owner);
-  }
+    getAllOwners(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/owners');
+    }
 
-  // BOOKINGS
+    insertOwner(owner: Owner): Observable<any> {
+        return this.http.post<any>(this.host + '/owners', owner);
+    }
 
-  getBookingById(id: string): Observable<any> {
-    return this.http.get<any>(this.host + '/bookings/' + id);
-  }
+    deleteOwner(id: string) {
+        return this.http.delete<any>(this.host + '/owners/' + id);
+    }
 
-  getAllBookings(): Observable<any[]> {
-    return this.http.get<any[]>(this.host + '/bookings');
-  }
+    updateOwner(id: string, owner: Owner): Observable<any> {
+        return this.http.put<any>(this.host + '/owners/' + id, owner);
+    }
 
-  insertBooking(booking: Booking): Observable<any> {
-    return this.http.post<any>(this.host + '/bookings', booking);
-  }
+    // BOOKINGS
 
-  deleteBooking(id: string) {
-    return this.http.delete<any>(this.host + '/bookings/' + id);
-  }
+    getBookingById(id: string): Observable<any> {
+        return this.http.get<any>(this.host + '/bookings/' + id);
+    }
 
-  updateBooking(id: string, booking: Booking): Observable<any> {
-    return this.http.put<any>(this.host + '/bookings/' + id, booking);
-  }
+    getAllBookings(): Observable<any[]> {
+        return this.http.get<any[]>(this.host + '/bookings');
+    }
+
+    insertBooking(booking: Booking): Observable<any> {
+        return this.http.post<any>(this.host + '/bookings', booking);
+    }
+
+    deleteBooking(id: string) {
+        return this.http.delete<any>(this.host + '/bookings/' + id);
+    }
+
+    updateBooking(id: string, booking: Booking): Observable<any> {
+        return this.http.put<any>(this.host + '/bookings/' + id, booking);
+    }
 }

@@ -1,0 +1,47 @@
+<mat-card appearance="raised" class="center card">
+    <mat-card-content>
+        <form [formGroup]="addPetForm" (ngSubmit)="addPet()">
+            <mat-form-field class="form-input">
+                <mat-label for="name">Name</mat-label>
+                <input matInput required minlength="1" maxlength="50" id="name" name="name" formControlName="name" />
+            </mat-form-field><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="species">Species</mat-label>
+                <mat-select id="species" formControlName="species" required>
+                    @for (species of allSpecies; track species) {
+                    <mat-option [value]="species">{{species.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field><br />
+
+            <div class="radio-group">
+                <mat-radio-group class="form-input" formControlName="gender" required>
+                    @for (gender of genders; track gender) {
+                    <mat-radio-button [value]="gender">{{gender}}</mat-radio-button>
+                    }
+                </mat-radio-group>
+            </div><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="birthDate">Birth Date</mat-label>
+                <input matInput id="birthDate" [matDatepicker]="birthDate" formControlName="birthDate" required />
+                <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
+                <mat-datepicker #birthDate></mat-datepicker>
+            </mat-form-field><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="owner">Owner</mat-label>
+                <mat-select id="owner" formControlName="owner">
+                    @for (owner of owners; track owner) {
+                    <mat-option [value]="owner">{{owner.lastName}}, {{owner.firstName}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field><br />
+
+            <button mat-button type="submit" class="float-right" color="primary"
+                [disabled]="!addPetForm.valid">Save</button>
+            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
+        </form>
+    </mat-card-content>
+</mat-card>

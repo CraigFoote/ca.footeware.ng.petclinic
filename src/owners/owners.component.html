@@ -4,22 +4,22 @@
 
 @if (mode == 'list'){
 <div class="center">
-    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Procedure</button>
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add an Owner</button>
 </div>
 <mat-card *ngFor="let owner of owners" appearance="raised" class="card">
     <mat-card-header>
         <mat-card-title class="bold">{{owner.lastName}}, {{owner.firstName}}</mat-card-title>
-        <mat-card-content>
-            <ul>
-                <li>{{owner.address}}</li>
-                <li>{{owner.city}}</li>
-                <li>{{owner.province}}</li>
-                <li>{{owner.postalCode}}</li>
-                <li>{{owner.email}}</li>
-                <li>{{owner.phone}}</li>
-            </ul>
-        </mat-card-content>
     </mat-card-header>
+    <mat-card-content style="background-color: #b0bb94;">
+        <ul>
+            <li>{{owner.address}}</li>
+            <li>{{owner.city}}</li>
+            <li>{{owner.province}}</li>
+            <li>{{owner.postalCode}}</li>
+            <li>{{owner.email}}</li>
+            <li>{{owner.phone}}</li>
+        </ul>
+    </mat-card-content>
     <mat-card-actions style="justify-content: flex-end;">
         <button mat-button color="warn" class="float-right" (click)="deleteOwner(owner.id)">Delete</button>
         <button mat-button color="primary" class="float-right"
@@ -71,7 +71,8 @@
             </mat-form-field><br />
             <mat-form-field class="form-input">
                 <mat-label for="phone">Phone</mat-label>
-                <input matInput required type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="10" maxlength="12" id="phone" name="phone" formControlName="phone" />
+                <input matInput required type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="10" maxlength="12"
+                    id="phone" name="phone" formControlName="phone" />
             </mat-form-field><br />
             <button mat-button type="submit" class="float-right" color="primary"
                 [disabled]="!addOwnerForm.valid">Save</button>
@@ -123,8 +124,8 @@
             </mat-form-field><br />
             <mat-form-field class="form-input">
                 <mat-label for="phone">Phone</mat-label>
-                <input matInput type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required minlength="10" maxlength="12" id="phone" name="phone"
-                    formControlName="phone" />
+                <input matInput type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required minlength="10" maxlength="12"
+                    id="phone" name="phone" formControlName="phone" />
             </mat-form-field><br />
             <button mat-button type="submit" class="float-right" color="primary"
                 [disabled]="!editOwnerForm.valid">Save</button>
