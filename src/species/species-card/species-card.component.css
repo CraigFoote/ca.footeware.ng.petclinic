@@ -3,7 +3,6 @@
 }
 
 .card {
-    text-align: center;
     padding: 20px;
     margin: 20px;
     min-width: 450px;
@@ -13,13 +12,16 @@
     margin-right: auto;
 }
 
-.float-right {
-    float: right;
+ul {
+    padding: 10px;
+    margin: 10px;
 }
 
-.radio-group {
-    text-align: left;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+ul>li {
+    list-style-type: none;
+    padding: 5px;
+}
+
+.bold {
+    font-weight: bolder;
 }

@@ -1,0 +1,18 @@
+<mat-card appearance="raised" class="center card">
+    <mat-card-content>
+        <form class="center" [formGroup]="addSpeciesForm" (ngSubmit)="createSpecies()">
+            <mat-form-field class="center form-input">
+                <mat-label>Name</mat-label>
+                <input matInput required minlength="1" maxlength="24" name="name" formControlName="name" />
+            </mat-form-field>
+            <mat-form-field class="center form-input">
+                <mat-label>Description</mat-label>
+                <textarea matInput required minlength="1" maxlength="300" cdkTextareaAutosize name="description"
+                    formControlName="description"></textarea>
+            </mat-form-field><br />
+            <button mat-button type="submit" class="float-right" color="primary"
+                [disabled]="!addSpeciesForm.valid">Save</button>
+            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
+        </form>
+    </mat-card-content>
+</mat-card>

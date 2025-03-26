@@ -8,6 +8,8 @@ import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators,
 import { Vet } from '../../model/Vet';
 import { PetService } from '../../services/pet.service';
 import { VetCardComponent } from "../vet-card/vet-card.component";
+import { EditVetFormComponent } from "../edit-vet-form/edit-vet-form.component";
+import { AddVetFormComponent } from "../add-vet-form/add-vet-form.component";
 
 @Component({
     selector: 'app-vets-page',
@@ -19,7 +21,9 @@ import { VetCardComponent } from "../vet-card/vet-card.component";
         MatFormFieldModule,
         FormsModule,
         ReactiveFormsModule,
-        VetCardComponent
+        VetCardComponent,
+        EditVetFormComponent,
+        AddVetFormComponent
     ],
     providers: [PetService],
     templateUrl: './vets-page.component.html',
@@ -29,20 +33,9 @@ export class VetsPageComponent implements OnInit {
 
     mode: string = 'list';
     vets: Vet[] = [];
-    currentVetId?: string;
-    addVetForm: FormGroup;
-    editVetForm: FormGroup;
+    vet?: Vet;
 
-    constructor(private petService: PetService, private formBuilder: FormBuilder) {
-        this.addVetForm = this.formBuilder.group({
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
-        });
-
-        this.editVetForm = this.formBuilder.group({
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
-        });
+    constructor(private petService: PetService) {
     }
 
     ngOnInit(): void {
@@ -66,11 +59,7 @@ export class VetsPageComponent implements OnInit {
         });
     }
 
-    addVet() {
-        const vet = new Vet({
-            firstName: this.addVetForm.value.firstName,
-            lastName: this.addVetForm.value.lastName,
-        });
+    createVet(vet: Vet) {
         this.petService.insertVet(vet).subscribe((message: string) => {
             this.getAllVets();
             this.setMode('list');
@@ -87,19 +76,13 @@ export class VetsPageComponent implements OnInit {
     }
 
     editVet(vet: Vet) {
-        this.currentVetId = vet.id;
-        this.editVetForm.controls['firstName'].setValue(vet.firstName);
-        this.editVetForm.controls['lastName'].setValue(vet.lastName);
+        this.vet = vet;
         this.setMode('edit');
     }
 
-    saveVet() {
-        if (this.currentVetId) {
-            const vet = new Vet({
-                firstName: this.editVetForm.value.firstName,
-                lastName: this.editVetForm.value.lastName,
-            });
-            this.petService.updateVet(this.currentVetId, vet).subscribe((message: string) => {
+    updateVet(vet: Vet) {
+        if (this.vet) {
+            this.petService.updateVet(this.vet.id, vet).subscribe((message: string) => {
                 this.getAllVets();
                 this.setMode('list');
             });

@@ -11,13 +11,11 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Species } from '../../model/Species';
 import { Owner } from '../../model/Owner';
-import { Gender } from '../../model/Gender';
-import { Pet } from '../../model/Pet';
+import { Province } from '../../model/Province';
 
 @Component({
-    selector: 'app-add-pet-form',
+    selector: 'app-add-owner-form',
     imports: [
         CommonModule,
         MatButtonModule,
@@ -35,31 +33,32 @@ import { Pet } from '../../model/Pet';
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
-    templateUrl: './add-pet-form.component.html',
-    styleUrl: './add-pet-form.component.css',
+    templateUrl: './add-owner-form.component.html',
+    styleUrl: './add-owner-form.component.css',
     standalone: true
 })
-export class AddPetFormComponent {
+export class AddOwnerFormComponent {
 
-    addPetForm: FormGroup;
-    genders: Gender[] = [Gender.MALE, Gender.FEMALE];
-    @Input() owners?: Owner[];
-    @Input() allSpecies?: Species[];
-    @Output() saveClicked = new EventEmitter<Pet>();
+    addOwnerForm: FormGroup;
+    @Input() provinces: Province[] = Object.values(Province);
+    @Output() saveClicked = new EventEmitter<Owner>();
     @Output() cancelClicked = new EventEmitter<string>();
 
     constructor(private formBuilder: FormBuilder) {
-        this.addPetForm = this.formBuilder.group({
-            name: new FormControl('', Validators.required),
-            species: new FormControl('', Validators.required),
-            gender: new FormControl('', Validators.required),
-            birthDate: new FormControl('', Validators.required),
-            owner: new FormControl()
+        this.addOwnerForm = this.formBuilder.group({
+            firstName: new FormControl('', [Validators.required]),
+            lastName: new FormControl('', [Validators.required]),
+            address: new FormControl(''),
+            city: new FormControl(''),
+            province: new FormControl(''),
+            postalCode: new FormControl(''),
+            email: new FormControl('', [Validators.required, Validators.email]),
+            phone: new FormControl('', [Validators.required])
         });
     }
 
-    createPet() {
-        this.saveClicked.emit(this.addPetForm.value);
+    createOwner() {
+        this.saveClicked.emit(this.addOwnerForm.value);
     }
 
     setMode(mode: string) {

@@ -1,6 +1,6 @@
 <mat-card appearance="raised" class="center card">
     <mat-card-content>
-        <form [formGroup]="addPetForm" (ngSubmit)="addPet()">
+        <form [formGroup]="addPetForm" (ngSubmit)="createPet()">
             <mat-form-field class="form-input">
                 <mat-label for="name">Name</mat-label>
                 <input matInput required minlength="1" maxlength="50" id="name" name="name" formControlName="name" />

@@ -4,16 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatRadioModule } from '@angular/material/radio';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatSelectModule } from '@angular/material/select';
-import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
-import { Gender } from '../../model/Gender';
-import { Species } from '../../model/Species';
-import { Owner } from '../../model/Owner';
 import { Vet } from '../../model/Vet';
 
 @Component({
@@ -43,11 +34,15 @@ export class AddVetFormComponent {
         });
     }
 
+    setMode(mode: string) {
+        this.cancelClicked.emit(mode);
+    }
+
     save() {
         this.saveClicked.emit(this.addVetForm.value);
     }
 
-    cancel() {
-        this.cancelClicked.emit('cancel');
+    createVet() {
+        throw new Error('Method not implemented.');
     }
 }

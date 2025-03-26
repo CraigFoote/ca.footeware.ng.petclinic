@@ -1,6 +1,6 @@
 <mat-card appearance="raised" class="center card">
     <mat-card-content>
-        <form [formGroup]="addProcedureForm" (ngSubmit)="addProcedure()">
+        <form [formGroup]="addProcedureForm" (ngSubmit)="createProcedure()">
             <mat-form-field class="form-input">
                 <mat-label>Name</mat-label>
                 <input matInput required minlength="1" maxlength="50" name="name" formControlName="name" />

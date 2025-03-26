@@ -1,0 +1,18 @@
+<h1 class="center">Owners</h1>
+
+<img src="../assets/images/dogChasingBird.png" class="center" alt="dog on leash chasing bird" />
+
+@if (mode == 'list'){
+<div class="center">
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add an Owner</button>
+</div>
+<app-owner-card [owners]="owners" (deleteClicked)="deleteOwner($event)" (editClicked)="editOwner($event)" />
+}
+
+@if (mode === 'add') {
+<app-add-owner-form [provinces]="provinces" (saveClicked)="createOwner($event)" (cancelClicked)="setMode('list')" />
+}
+
+@if (mode === 'edit') {
+<app-edit-owner-form [owner]="owner" (saveClicked)="updateOwner($event)" (cancelClicked)="setMode('list')" />
+}

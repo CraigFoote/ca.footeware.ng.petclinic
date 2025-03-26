@@ -11,41 +11,9 @@
 }
 
 @if (mode === 'add') {
-<mat-card appearance="raised" class="center card">
-    <mat-card-content>
-        <form [formGroup]="addVetForm" (ngSubmit)="addVet()">
-            <mat-form-field class="form-input">
-                <mat-label>First Name</mat-label>
-                <input matInput required minlength="1" maxlength="24" name="firstName" formControlName="firstName" />
-            </mat-form-field><br />
-            <mat-form-field class="form-input">
-                <mat-label>Last Name</mat-label>
-                <input matInput required minlength="1" maxlength="24" name="lastName" formControlName="lastName" />
-            </mat-form-field><br />
-            <button mat-button type="submit" class="float-right" color="primary"
-                [disabled]="!addVetForm.valid">Save</button>
-            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
-        </form>
-    </mat-card-content>
-</mat-card>
+<app-add-vet-form (cancelClicked)="setMode('list')" (saveClicked)="createVet($event)" />
 }
 
 @if (mode === 'edit') {
-<mat-card appearance="raised" class="center card">
-    <mat-card-content>
-        <form [formGroup]="editVetForm" (ngSubmit)="saveVet()">
-            <mat-form-field class="form-input">
-                <mat-label>First Name</mat-label>
-                <input matInput required minlength="1" maxlength="24" name="firstName" formControlName="firstName" />
-            </mat-form-field><br />
-            <mat-form-field class="form-input">
-                <mat-label>Last Name</mat-label>
-                <input matInput required minlength="1" maxlength="24" name="lastName" formControlName="lastName" />
-            </mat-form-field><br />
-            <button mat-button type="submit" class="float-right" color="primary"
-                [disabled]="!editVetForm.valid">Save</button>
-            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
-        </form>
-    </mat-card-content>
-</mat-card>
+<app-edit-vet-form [vet]="vet" (cancelClicked)="setMode('list')" (saveClicked)="updateVet($event)" />
 }

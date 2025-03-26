@@ -5,10 +5,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, FormBuilder, FormControl, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
-import { Vet } from '../../model/Vet';
+import { Species } from '../../model/Species';
 
 @Component({
-    selector: 'app-edit-vet-form',
+    selector: 'app-edit-species-form',
     imports: [
         CommonModule,
         MatButtonModule,
@@ -18,22 +18,22 @@ import { Vet } from '../../model/Vet';
         FormsModule,
         ReactiveFormsModule
     ],
-    templateUrl: './edit-vet-form.component.html',
-    styleUrl: './edit-vet-form.component.css',
+    templateUrl: './edit-species-form.component.html',
+    styleUrl: './edit-species-form.component.css',
     standalone: true
 })
-export class EditVetFormComponent implements OnChanges {
+export class EditSpeciesFormComponent implements OnChanges{
 
-    editVetForm: FormGroup;
-    @Input() vet?: Vet;
-    @Output() saveClicked = new EventEmitter<Vet>();
+    editSpeciesForm: FormGroup;
+    @Input() species?: Species;
+    @Output() saveClicked = new EventEmitter<Species>();
     @Output() cancelClicked = new EventEmitter<string>();
 
     constructor(private formBuilder: FormBuilder) {
-        this.editVetForm = this.formBuilder.group({
-            id: new FormControl(),
-            firstName: new FormControl('', Validators.required),
-            lastName: new FormControl('', Validators.required),
+        this.editSpeciesForm = this.formBuilder.group({
+            id: new FormControl('', Validators.required),
+            name: new FormControl('', Validators.required),
+            description: new FormControl('', Validators.required)
         });
     }
 
@@ -41,13 +41,13 @@ export class EditVetFormComponent implements OnChanges {
         this.cancelClicked.emit(mode);
     }
 
-    updateVet() {
-        this.saveClicked.emit(this.editVetForm.value);
+    updateSpecies() {
+        this.saveClicked.emit(this.editSpeciesForm.value);
     }
 
     ngOnChanges(changes: SimpleChanges) {
-        if (this.vet) {
-            this.editVetForm.patchValue(this.vet);
+        if (this.species) {
+            this.editSpeciesForm.patchValue(this.species);
         }
     }
 }

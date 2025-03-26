@@ -1,0 +1,19 @@
+<h1 class="center">Species</h1>
+
+<img src="../assets/images/pig.png" class="center" alt="vet" />
+
+@if (mode == 'list'){
+<div class="center">
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Species</button>
+</div>
+<app-species-card [allSpecies]="allSpecies" (deleteClicked)="deleteSpecies($event)"
+    (editClicked)="editSpecies($event)" />
+}
+
+@if (mode === 'add') {
+<app-add-species-form  (saveClicked)="createSpecies($event)" (cancelClicked)="setMode('list')" />
+}
+
+@if (mode === 'edit') {
+<app-edit-species-form [species]="species" (saveClicked)="updateSpecies($event)" (cancelClicked)="setMode('list')" />
+}
