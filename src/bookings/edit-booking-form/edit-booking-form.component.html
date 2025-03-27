@@ -1,0 +1,44 @@
+<mat-card appearance="raised" class="center card">
+    <mat-card-content>
+        <form [formGroup]="editBookingForm" (ngSubmit)="updateBooking()">
+            <input type="hidden" formControlName="id" />
+            <mat-form-field class="form-input left">
+                <mat-label for="date">Date</mat-label>
+                <input matInput id="date" [matDatepicker]="date" formControlName="date" required />
+                <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
+                <mat-datepicker #date></mat-datepicker>
+            </mat-form-field><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="pet">Pet</mat-label>
+                <mat-select id="pet" formControlName="pet" required>
+                    @for (pet of pets; track pet) {
+                    <mat-option [value]="pet">{{pet.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="procedure">Procedure</mat-label>
+                <mat-select id="procedure" formControlName="procedure" required>
+                    @for (procedure of procedures; track procedure) {
+                    <mat-option [value]="procedure">{{procedure.name}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field><br />
+
+            <mat-form-field class="form-input">
+                <mat-label for="vet">Vet</mat-label>
+                <mat-select id="vet" formControlName="vet" required>
+                    @for (vet of vets; track vet) {
+                    <mat-option [value]="vet">Dr. {{vet.lastName}}, {{vet.firstName}}</mat-option>
+                    }
+                </mat-select>
+            </mat-form-field><br />
+
+            <button mat-button type="submit" class="float-right" color="primary"
+                [disabled]="!editBookingForm.valid">Save</button>
+            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
+        </form>
+    </mat-card-content>
+</mat-card>

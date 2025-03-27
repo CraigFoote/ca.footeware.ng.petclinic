@@ -1,14 +1,18 @@
+import { Pet } from "./Pet";
+import { Procedure } from "./Procedure";
+import { Vet } from "./Vet";
+
 export class Booking {
     public id?: any;
     public date: Date;
-    public petId: string;
-    public procedureId: string;
-    public vetId: string;
+    public pet: Pet;
+    public procedure: Procedure;
+    public vet: Vet;
 
-    constructor(date: Date, petId: string, procedureId: string, vetId: string) {
+    constructor(date: Date, pet: Pet, procedure: Procedure, vet: Vet) {
         this.date = date;
-        this.petId = petId;
-        this.procedureId = procedureId;
-        this.vetId = vetId;
+        this.pet = pet;
+        this.procedure = procedure;
+        this.vet = vet;
     }
 }

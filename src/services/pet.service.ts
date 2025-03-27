@@ -6,7 +6,7 @@ import { Procedure } from "../model/Procedure";
 import { Vet } from "../model/Vet";
 import { Owner } from "../model/Owner";
 import { PetDTO } from "../model/PetDTO";
-import { Booking } from "../model/Booking";
+import { BookingDTO } from "../model/BookingDTO";
 
 @Injectable({
     providedIn: 'root',
@@ -141,7 +141,7 @@ export class PetService {
         return this.http.get<any[]>(this.host + '/bookings');
     }
 
-    insertBooking(booking: Booking): Observable<any> {
+    insertBooking(booking: BookingDTO): Observable<any> {
         return this.http.post<any>(this.host + '/bookings', booking);
     }
 
@@ -149,7 +149,7 @@ export class PetService {
         return this.http.delete<any>(this.host + '/bookings/' + id);
     }
 
-    updateBooking(id: string, booking: Booking): Observable<any> {
+    updateBooking(id: string, booking: BookingDTO): Observable<any> {
         return this.http.put<any>(this.host + '/bookings/' + id, booking);
     }
 }

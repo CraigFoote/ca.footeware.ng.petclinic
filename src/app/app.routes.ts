@@ -5,11 +5,11 @@ import { VetsPageComponent } from '../vets/vets-page/vets-page.component';
 import { ProceduresPageComponent } from '../procedures/procedures-page/procedures-page.component';
 import { SpeciesPageComponent } from '../species/species-page/species-page.component';
 import { OwnersPageComponent } from '../owners/owners-page/owners-page.component';
-import { BookingsComponent } from '../bookings/bookings.component';
+import { BookingsPageComponent } from '../bookings/bookings-page/bookings-page.component';
 
 export const routes: Routes = [
     { path: 'search', component: SearchComponent },
-    { path: 'bookings', component: BookingsComponent },
+    { path: 'bookings', component: BookingsPageComponent },
     { path: 'pets', component: PetsPageComponent },
     { path: 'vets', component: VetsPageComponent },
     { path: 'owners', component: OwnersPageComponent },

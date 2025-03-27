@@ -1,0 +1,20 @@
+<h1 class="center">Bookings</h1>
+
+<img src="../assets/images/suitcase.png" class="center" alt="dog and cat sitting on a suitcase" />
+
+@if (mode == 'list'){
+<div class="center">
+    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Booking</button>
+</div>
+<app-booking-card [bookings]="bookings" (deleteClicked)="deleteBooking($event)" (editClicked)="editBooking($event)" />
+}
+
+@if (mode === 'add') {
+<app-add-booking-form [procedures]="procedures" [pets]="pets" [vets]="vets" (saveClicked)="createBooking($event)"
+    (cancelClicked)="setMode('list')" />
+}
+
+@if (mode === 'edit') {
+<app-edit-booking-form [booking]="booking" [procedures]="procedures" [pets]="pets" [vets]="vets"
+    (saveClicked)="updateBooking($event)" (cancelClicked)="setMode('list')" />
+}
