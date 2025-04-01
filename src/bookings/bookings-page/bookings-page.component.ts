@@ -157,8 +157,10 @@ export class BookingsPageComponent implements OnInit {
         );
     }
 
-
     setMode(mode: string) {
+        if (mode === 'add') {
+            this.petToBook = undefined;
+        }
         this.mode = mode;
     }
 
