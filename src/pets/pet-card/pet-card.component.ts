@@ -16,9 +16,11 @@ import { Pet } from '../../model/Pet';
 })
 export class PetCardComponent {
 
+    @Input() view?: string;
     @Input() pets: Pet[] = [];
     @Output() deleteClicked = new EventEmitter<Pet>();
     @Output() editClicked = new EventEmitter<Pet>();
+    @Output() bookClicked = new EventEmitter<Pet>();
 
     deletePet(pet: Pet) {
         this.deleteClicked.emit(pet);
@@ -26,5 +28,9 @@ export class PetCardComponent {
 
     editPet(pet: Pet) {
         this.editClicked.emit(pet);
+    }
+
+    bookPet(pet: Pet) {
+        this.bookClicked.emit(pet);
     }
 }

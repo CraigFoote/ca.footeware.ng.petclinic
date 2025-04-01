@@ -10,7 +10,7 @@
 }
 
 @if (mode === 'add') {
-<app-add-booking-form [procedures]="procedures" [pets]="pets" [vets]="vets" (saveClicked)="createBooking($event)"
+<app-add-booking-form [petToBook]="petToBook" [procedures]="procedures" [pets]="pets" [vets]="vets" (saveClicked)="createBooking($event)"
     (cancelClicked)="setMode('list')" />
 }
 

@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -9,11 +9,21 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { PetService } from '../services/pet.service';
 import { Pet } from '../model/Pet';
+import { PetCardComponent } from '../pets/pet-card/pet-card.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-search',
     standalone: true,
-    imports: [MatInputModule, MatFormFieldModule, FormsModule, CommonModule, MatCardModule, MatButtonModule],
+    imports: [
+        MatInputModule,
+        MatFormFieldModule,
+        FormsModule,
+        CommonModule,
+        MatCardModule,
+        MatButtonModule,
+        PetCardComponent
+    ],
     providers: [PetService,
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
@@ -23,9 +33,9 @@ import { Pet } from '../model/Pet';
 })
 export class SearchComponent {
 
-    pets: Pet[] = [];
+    @Input() pets: Pet[] = [];
 
-    constructor(private petService: PetService) { }
+    constructor(private petService: PetService, private router: Router) { }
 
     submitSearch(searchTerm: string) {
         const term = searchTerm.trim();
@@ -38,8 +48,9 @@ export class SearchComponent {
         throw new Error('Method not implemented.');
     }
 
-    bookPet(id: string) {
-        throw new Error('Method not implemented.');
+    bookPet(pet: Pet) {
+        // Use router state to pass the complex Pet object
+        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add', view: 'info' } });
     }
 
     searchPets(term: string) {
@@ -49,6 +60,7 @@ export class SearchComponent {
                 this.petService.getSpeciesById(petDTO.speciesId).subscribe((species: any) => {
                     this.petService.getOwnerById(petDTO.ownerId).subscribe((owner: any) => {
                         const pet = new Pet(petDTO.name, species, petDTO.gender, petDTO.birthDate, owner);
+                        pet.id = petDTO.id; // Assign the ID from the DTO
                         this.pets.push(pet);
                     });
                 });

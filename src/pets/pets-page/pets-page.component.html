@@ -6,7 +6,7 @@
 <div class="center">
     <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Pet</button>
 </div>
-<app-pet-card [pets]="pets" (deleteClicked)="deletePet($event)" (editClicked)="editPet($event)" />
+<app-pet-card [view]="'admin'" [pets]="pets" (deleteClicked)="deletePet($event)" (editClicked)="editPet($event)" />
 }
 
 @if (mode === 'add') {
