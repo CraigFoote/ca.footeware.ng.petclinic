@@ -1,6 +1,6 @@
 <mat-card *ngFor="let booking of bookings" appearance="raised" class="card">
     <mat-card-header>
-        <mat-card-title class="bold">{{booking.date | date}}</mat-card-title>
+        <mat-card-title class="bold" [ngClass]="{'past-date': isPastDate(booking.date)}">{{booking.date | date}}</mat-card-title>
     </mat-card-header>
     <mat-card-content style="background-color: #b0bb94; padding: 10px;">
         <ul>

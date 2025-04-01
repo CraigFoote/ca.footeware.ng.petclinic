@@ -27,4 +27,14 @@ export class BookingCardComponent {
     editBooking(booking: Booking) {
         this.editClicked.emit(booking);
     }
+
+    // Helper method to check if a date is in the past
+    isPastDate(date: Date): boolean {
+        const today = new Date();
+        // Set hours, minutes, seconds, and milliseconds to 0 for accurate date comparison
+        today.setHours(0, 0, 0, 0);
+        const bookingDate = new Date(date); // Ensure it's a Date object
+        bookingDate.setHours(0, 0, 0, 0);
+        return bookingDate < today;
+    }
 }

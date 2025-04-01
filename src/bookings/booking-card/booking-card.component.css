@@ -25,3 +25,7 @@ ul>li {
 .bold {
     font-weight: bolder;
 }
+
+.past-date {
+    color: red;
+}
