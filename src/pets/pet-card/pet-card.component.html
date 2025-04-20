@@ -12,7 +12,6 @@
     </mat-card-content>
     <mat-card-actions style="justify-content: flex-end;">
         @if (view == "admin") {
-        <button mat-button color="warn" class="float-right" (click)="deletePet(pet)">Delete</button>
         <button mat-button color="primary" class="float-right" (click)="editPet(pet)">Edit</button>
         } @else if (view == "info") {
         <button mat-button color="primary" class="float-right" (click)="bookPet(pet)">Book</button>

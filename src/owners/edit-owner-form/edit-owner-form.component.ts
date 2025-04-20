@@ -40,7 +40,7 @@ export class EditOwnerFormComponent implements OnChanges {
 
     editOwnerForm: FormGroup;
     @Input() owner?: Owner;
-    @Input() provinces: Province[] = [];
+    @Input() provinces: Province[] = Object.values(Province);
     @Output() saveClicked = new EventEmitter<Owner>();
     @Output() cancelClicked = new EventEmitter<string>();
 
@@ -49,11 +49,11 @@ export class EditOwnerFormComponent implements OnChanges {
             id: new FormControl(),
             firstName: new FormControl('', Validators.required),
             lastName: new FormControl('', Validators.required),
-            address: new FormControl(),
-            city: new FormControl(),
-            province: new FormControl(),
-            postalCode: new FormControl(),
-            email: new FormControl('', Validators.required),
+            address: new FormControl('', Validators.required),
+            city: new FormControl('', Validators.required),
+            province: new FormControl('', Validators.required),
+            postalCode: new FormControl('', Validators.required),
+            email: new FormControl('', Validators.email),
             phone: new FormControl('', Validators.required)
         });
     }

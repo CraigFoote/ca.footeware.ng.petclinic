@@ -115,7 +115,7 @@ export class BookingsPageComponent implements OnInit {
                 if (!petDTOs || petDTOs.length === 0) {
                     return of([]);
                 }
-                const observables = petDTOs.map(petDTO =>
+                const observables = petDTOs.map(petDTO => 
                     forkJoin({
                         species: this.petService.getSpeciesById(petDTO.speciesId),
                         owner: this.petService.getOwnerById(petDTO.ownerId)

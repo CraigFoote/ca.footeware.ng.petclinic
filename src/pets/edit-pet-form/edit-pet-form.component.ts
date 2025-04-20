@@ -42,7 +42,7 @@ import { Pet } from '../../model/Pet';
 export class EditPetFormComponent implements OnChanges {
 
     editPetForm: FormGroup;
-    genders: Gender[] = [Gender.MALE, Gender.FEMALE];
+    genders: Gender[] = Object.values(Gender);
     @Input() pet?: Pet;
     @Input() owners?: Owner[];
     @Input() allSpecies?: Species[];

@@ -18,13 +18,8 @@ export class PetCardComponent {
 
     @Input() view?: string;
     @Input() pets: Pet[] = [];
-    @Output() deleteClicked = new EventEmitter<Pet>();
     @Output() editClicked = new EventEmitter<Pet>();
     @Output() bookClicked = new EventEmitter<Pet>();
-
-    deletePet(pet: Pet) {
-        this.deleteClicked.emit(pet);
-    }
 
     editPet(pet: Pet) {
         this.editClicked.emit(pet);

@@ -134,7 +134,7 @@ export class PetsPageComponent implements OnInit {
     }
 
     updatePet(pet: Pet) {
-        if (this.pet) {
+        if (this.pet) { 
             const petDTO = new PetDTO(
                 pet.name,
                 pet.species.id,

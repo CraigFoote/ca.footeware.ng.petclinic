@@ -43,6 +43,6 @@ export class AddVetFormComponent {
     }
 
     createVet() {
-        throw new Error('Method not implemented.');
+        this.saveClicked.emit(this.addVetForm.value);
     }
 }
