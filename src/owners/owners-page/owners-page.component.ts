@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Route, ActivatedRoute } from '@angular/router';
 import { PetService } from '../../services/pet.service';
 import { Owner } from '../../model/Owner';
 import { Province } from '../../model/Province';
@@ -46,15 +47,19 @@ import { EditOwnerFormComponent } from '../edit-owner-form/edit-owner-form.compo
 })
 export class OwnersPageComponent implements OnInit {
 
+    id?: string;
     mode: string = 'list';
     owners: Owner[] = [];
     provinces: Province[] = Object.values(Province);
     owner?: Owner;
 
-    constructor(private petService: PetService) {
+    constructor(private petService: PetService, private route: ActivatedRoute) {
     }
 
     ngOnInit(): void {
+        this.route.params.subscribe(params => {
+            this.id = params['id'];
+        });
         this.getAllOwners();
     }
 
@@ -64,8 +69,12 @@ export class OwnersPageComponent implements OnInit {
 
     getAllOwners() {
         this.petService.getAllOwners().subscribe((owners: Owner[]) => {
-            owners = owners.sort((a, b) => a.lastName.localeCompare(b.lastName));
-            this.owners = owners;
+            if(this.id){
+                this.owners = owners.filter(owner => owner.id === this.id);
+            } else {
+                this.owners = owners;
+            }
+            this.owners.sort((a, b) => a.lastName.localeCompare(b.lastName));
         });
     }
 

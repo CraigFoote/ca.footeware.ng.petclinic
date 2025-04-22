@@ -22,6 +22,11 @@ ul>li {
     padding: 5px;
 }
 
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
 .bold {
     font-weight: bolder;
 }

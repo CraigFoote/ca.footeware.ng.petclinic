@@ -9,4 +9,6 @@
     </mat-form-field>
 </form>
 
+@if (pets.length > 0) {
 <app-pet-card [view]="'info'" [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
+}

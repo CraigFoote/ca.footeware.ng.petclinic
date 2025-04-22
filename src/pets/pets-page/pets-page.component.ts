@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { PetDTO } from '../../model/PetDTO';
 import { PetService } from '../../services/pet.service';
 import { Species } from '../../model/Species';
@@ -56,7 +57,7 @@ export class PetsPageComponent implements OnInit {
     allSpecies?: Species[];
     owners?: Owner[];
 
-    constructor(private petService: PetService) {
+    constructor(private petService: PetService, private router: Router) {
     }
 
     ngOnInit(): void {
@@ -134,7 +135,7 @@ export class PetsPageComponent implements OnInit {
     }
 
     updatePet(pet: Pet) {
-        if (this.pet) { 
+        if (this.pet) {
             const petDTO = new PetDTO(
                 pet.name,
                 pet.species.id,
@@ -152,5 +153,10 @@ export class PetsPageComponent implements OnInit {
     editPet(pet: Pet) {
         this.pet = pet;
         this.setMode('edit');
+    }
+
+    bookPet(pet: Pet) {
+        // Use router state to pass the complex Pet object
+        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add', view: 'info' } });
     }
 }

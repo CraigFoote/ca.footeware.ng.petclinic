@@ -2,7 +2,7 @@
 
 .page-title {
     font-family: "abkk";
-    font-size: 2em;
+    font-size: 1.7em;
     color: #181926;
 }
 
@@ -18,10 +18,10 @@
 
 nav a {
     margin: 5px;
-    color: #626880;
+    color: #424655;
     text-decoration: none;
     font-family: "decker";
-    font-size: 1.3em;
+    font-size: 1.1em;
 }
 
 nav li {
@@ -31,7 +31,11 @@ nav li {
 
 nav button {
     margin: 5px;
-    color: #626880;
+    color: #424655;
     font-family: "decker";
-    font-size: 1.3em;
+    font-size: 1.1em;
+}
+
+body {
+    font-family: "decker", sans-serif;
 }

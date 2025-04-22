@@ -6,7 +6,7 @@
 <div class="center">
     <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Booking</button>
 </div>
-<app-booking-card [bookings]="bookings" (deleteClicked)="deleteBooking($event)" (editClicked)="editBooking($event)" />
+<app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
 }
 
 @if (mode === 'add') {

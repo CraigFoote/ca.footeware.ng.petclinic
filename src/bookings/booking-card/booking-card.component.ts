@@ -17,24 +17,18 @@ import { Booking } from '../../model/Booking';
 export class BookingCardComponent {
 
     @Input() bookings: Booking[] = [];
-    @Output() deleteClicked = new EventEmitter<Booking>();
     @Output() editClicked = new EventEmitter<Booking>();
-
-    deleteBooking(booking: Booking) {
-        this.deleteClicked.emit(booking);
-    }
 
     editBooking(booking: Booking) {
         this.editClicked.emit(booking);
     }
 
-    // Helper method to check if a date is in the past
-    isPastDate(date: Date): boolean {
+    isCurrentDate(date: Date): boolean {
         const today = new Date();
         // Set hours, minutes, seconds, and milliseconds to 0 for accurate date comparison
         today.setHours(0, 0, 0, 0);
-        const bookingDate = new Date(date); // Ensure it's a Date object
+        const bookingDate = new Date(date);
         bookingDate.setHours(0, 0, 0, 0);
-        return bookingDate < today;
+        return bookingDate.getTime() === today.getTime();
     }
 }

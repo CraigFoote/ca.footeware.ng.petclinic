@@ -8,8 +8,8 @@
             <li>{{owner.city}}</li>
             <li>{{owner.province}}</li>
             <li>{{owner.postalCode}}</li>
-            <li>{{owner.email}}</li>
-            <li>{{owner.phone}}</li>
+            <li><a href="mailto:{{owner.email}}">{{owner.email}}</a></li>
+            <li><a href="tel:{{owner.phone}}">{{owner.phone}}</a></li>
         </ul>
     </mat-card-content>
     <mat-card-actions style="justify-content: flex-end;">

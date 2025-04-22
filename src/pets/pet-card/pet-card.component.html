@@ -7,14 +7,14 @@
             <li>{{pet.species.name}}</li>
             <li>{{pet.gender}}</li>
             <li>{{pet.birthDate | date}}</li>
-            <li>{{pet.owner.lastName}}, {{pet.owner.firstName}} ({{pet.owner.phone}})</li>
+            <li><a [routerLink]="'/owners/' + pet.owner.id">{{pet.owner.lastName}}, {{pet.owner.firstName}}</a>&nbsp;(<a
+                    href="tel:+6494461709">{{pet.owner.phone}}</a>)</li>
         </ul>
     </mat-card-content>
     <mat-card-actions style="justify-content: flex-end;">
         @if (view == "admin") {
         <button mat-button color="primary" class="float-right" (click)="editPet(pet)">Edit</button>
-        } @else if (view == "info") {
-        <button mat-button color="primary" class="float-right" (click)="bookPet(pet)">Book</button>
         }
+        <button mat-button color="primary" class="float-right" (click)="bookPet(pet)">Book</button>
     </mat-card-actions>
 </mat-card>

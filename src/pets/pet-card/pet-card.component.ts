@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
+import { RouterLink} from '@angular/router';
 import { Pet } from '../../model/Pet';
 
 @Component({
@@ -9,7 +10,8 @@ import { Pet } from '../../model/Pet';
     imports: [
         MatButtonModule,
         CommonModule,
-        MatCardModule
+        MatCardModule,
+        RouterLink
     ],
     templateUrl: './pet-card.component.html',
     styleUrl: './pet-card.component.css'

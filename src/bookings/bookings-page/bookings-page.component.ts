@@ -18,7 +18,6 @@ import { PetService } from '../../services/pet.service';
 import { AddBookingFormComponent } from '../add-booking-form/add-booking-form.component';
 import { BookingCardComponent } from '../booking-card/booking-card.component';
 import { EditBookingFormComponent } from '../edit-booking-form/edit-booking-form.component';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-bookings-page',
@@ -46,14 +45,12 @@ export class BookingsPageComponent implements OnInit {
     vets: Vet[] = [];
     petToBook?: Pet; // To hold the pet passed from search
 
-    constructor(private petService: PetService, private router: Router) {
-        // Constructor remains empty or for minimal DI setup
+    constructor(private petService: PetService) {
     }
 
     ngOnInit(): void {
-        // 1. Determine intended mode and pet from history state
-        let intendedMode = 'list'; // Default
-        // Use history.state for potentially more reliable state access after navigation
+
+        let intendedMode = 'list';
         const state = history.state as { petToBook: Pet, mode: string };
         if (state && state.petToBook) { // Check if state and petToBook exist
             this.petToBook = state.petToBook;
@@ -75,7 +72,6 @@ export class BookingsPageComponent implements OnInit {
 
             // 4. Set the mode *after* all data is loaded
             this.mode = intendedMode;
-            // Removed setTimeout wrapper
         });
     }
 
@@ -101,7 +97,7 @@ export class BookingsPageComponent implements OnInit {
                 );
                 return forkJoin(observables);
             }),
-            map(bookings => bookings.sort((a, b) => a.date.valueOf() - b.date.valueOf())), // Use standard map
+            map(bookings => bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())), // Use standard map
             catchError(error => {
                 console.error('Error fetching bookings:', error);
                 return of([]); // Return empty array on error
@@ -115,7 +111,7 @@ export class BookingsPageComponent implements OnInit {
                 if (!petDTOs || petDTOs.length === 0) {
                     return of([]);
                 }
-                const observables = petDTOs.map(petDTO => 
+                const observables = petDTOs.map(petDTO =>
                     forkJoin({
                         species: this.petService.getSpeciesById(petDTO.speciesId),
                         owner: this.petService.getOwnerById(petDTO.ownerId)

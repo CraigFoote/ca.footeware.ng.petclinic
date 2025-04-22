@@ -26,6 +26,6 @@ ul>li {
     font-weight: bolder;
 }
 
-.past-date {
-    color: red;
+.current-date {
+    color: rgb(179, 36, 36);
 }
