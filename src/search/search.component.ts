@@ -12,6 +12,7 @@ import { Pet } from '../model/Pet';
 import { PetCardComponent } from '../pets/pet-card/pet-card.component';
 import { Router } from '@angular/router';
 import { Booking } from '../model/Booking';
+import { BookingCardComponent } from '../bookings/booking-card/booking-card.component';
 
 @Component({
     selector: 'app-search',
@@ -23,7 +24,8 @@ import { Booking } from '../model/Booking';
         CommonModule,
         MatCardModule,
         MatButtonModule,
-        PetCardComponent
+        PetCardComponent,
+        BookingCardComponent
     ],
     providers: [PetService,
         provideNativeDateAdapter(),
@@ -50,6 +52,10 @@ export class SearchComponent {
         throw new Error('Method not implemented.');
     }
 
+    editBooking($event: Booking) {
+        throw new Error('Method not implemented.');
+    }
+
     bookPet(pet: Pet) {
         // Use router state to pass the complex Pet object
         this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add', view: 'info' } });
@@ -61,10 +67,9 @@ export class SearchComponent {
             // value is an array of arrays
             // each inner array contains objects of different types
             // we need to check the type of each object and create the corresponding model
-            // for example, if the object is a Pet, we need to create a Pet model
             for (const innerList of value) {
                 for (const item of innerList) {
-                    for (const attr in item) {
+                    attrs: for (const attr in item) { // 'in' iterates over the keys of the object 
                         if (attr === 'gender') {
                             // we have a Pet
                             // resolve ids to objects
@@ -75,7 +80,19 @@ export class SearchComponent {
                                     this.pets.push(pet);
                                 });
                             });
-                            break;
+                            break attrs;
+                        } else if (attr === 'procedureId') {
+                            // we have a Booking
+                            const pet = this.petService.getPetById(item.petId).subscribe((pet: any) => {
+                                const procedure = this.petService.getProcedureById(item.procedureId).subscribe((procedure: any) => {
+                                    const vet = this.petService.getVetById(item.vetId).subscribe((vet: any) => {
+                                        const booking = new Booking(new Date(item.date), pet, procedure, vet);
+                                        booking.id = item.id; // Assign the ID from the DTO
+                                        this.bookings.push(booking);
+                                    });
+                                });
+                            });
+                            break attrs;
                         }
                     }
                 }

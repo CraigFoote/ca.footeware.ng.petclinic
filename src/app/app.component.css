@@ -26,7 +26,8 @@ nav a {
 
 nav li {
     list-style-type: none;
-    display: inline;
+    display: inline-block;
+    padding-right: 5px;
 }
 
 nav button {
