@@ -12,7 +12,8 @@ import { Owner } from '../../model/Owner';
         MatCardModule
     ],
     templateUrl: './owner-card.component.html',
-    styleUrl: './owner-card.component.css'
+    styleUrl: './owner-card.component.css',
+    standalone: true
 })
 export class OwnerCardComponent {
 

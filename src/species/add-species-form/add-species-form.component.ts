@@ -27,7 +27,8 @@ import { Species } from '../../model/Species';
         ReactiveFormsModule
     ],
     templateUrl: './add-species-form.component.html',
-    styleUrl: './add-species-form.component.css'
+    styleUrl: './add-species-form.component.css',
+    standalone: true
 })
 export class AddSpeciesFormComponent {
 

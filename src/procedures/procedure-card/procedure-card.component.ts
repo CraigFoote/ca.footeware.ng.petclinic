@@ -16,7 +16,8 @@ import { Procedure } from '../../model/Procedure';
         MatFormFieldModule
     ],
     templateUrl: './procedure-card.component.html',
-    styleUrl: './procedure-card.component.css'
+    styleUrl: './procedure-card.component.css',
+    standalone: true
 })
 export class ProcedureCardComponent {
 

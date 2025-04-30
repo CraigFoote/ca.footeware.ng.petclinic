@@ -13,18 +13,19 @@ import { AddSpeciesFormComponent } from "../add-species-form/add-species-form.co
 @Component({
     selector: 'app-species-page',
     imports: [
-    MatButtonModule,
-    CommonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    SpeciesCardComponent,
-    EditSpeciesFormComponent,
-    AddSpeciesFormComponent
-],
+        MatButtonModule,
+        CommonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        SpeciesCardComponent,
+        EditSpeciesFormComponent,
+        AddSpeciesFormComponent
+    ],
     providers: [PetService],
     templateUrl: './species-page.component.html',
-    styleUrl: './species-page.component.css'
+    styleUrl: './species-page.component.css',
+    standalone: true
 })
 export class SpeciesPageComponent implements OnInit {
 

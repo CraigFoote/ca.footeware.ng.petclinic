@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Inject } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Species } from "../model/Species";
@@ -15,7 +15,7 @@ export class PetService {
 
     private host: string = 'http://localhost:9090';
 
-    constructor(private http: HttpClient) { }
+    constructor(@Inject(HttpClient) private http: HttpClient) { }
 
     search(term: string): Observable<any[]> {
         return this.http.get<any>(this.host + '/search/' + term);

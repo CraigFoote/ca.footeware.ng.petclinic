@@ -19,7 +19,8 @@ import { Vet } from '../../model/Vet';
         ReactiveFormsModule
     ],
     templateUrl: './add-vet-form.component.html',
-    styleUrl: './add-vet-form.component.css'
+    styleUrl: './add-vet-form.component.css',
+    standalone: true
 })
 export class AddVetFormComponent {
 

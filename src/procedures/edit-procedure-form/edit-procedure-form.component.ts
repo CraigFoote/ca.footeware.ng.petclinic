@@ -31,7 +31,8 @@ import { Procedure } from '../../model/Procedure';
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './edit-procedure-form.component.html',
-    styleUrl: './edit-procedure-form.component.css'
+    styleUrl: './edit-procedure-form.component.css',
+    standalone: true
 })
 export class EditProcedureFormComponent {
 

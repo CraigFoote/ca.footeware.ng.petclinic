@@ -1,13 +1,15 @@
 <img src="../assets/images/vetPets.png" class="center" alt="vet pets" />
 
-<form class="center" (ngSubmit)="submitSearch(search.value)">
-    <mat-form-field style="width: 100%;" class="form-input">
-        <mat-label>Search</mat-label>
-        <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
-            class="form-input" />
-        <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
-    </mat-form-field>
-</form>
+<search>
+    <form class="center" (ngSubmit)="submitSearch(search.value)">
+        <mat-form-field style="width: 100%;" class="form-input">
+            <mat-label>Search</mat-label>
+            <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
+                class="form-input" />
+            <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
+        </mat-form-field>
+    </form>
+</search>
 
 @if (bookings.length > 0) {
 <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />

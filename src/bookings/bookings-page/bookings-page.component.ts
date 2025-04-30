@@ -11,7 +11,6 @@ import { forkJoin, map } from 'rxjs';
 import { Booking } from '../../model/Booking';
 import { BookingDTO } from '../../model/BookingDTO';
 import { Pet } from '../../model/Pet';
-import { PetDTO } from '../../model/PetDTO';
 import { Procedure } from '../../model/Procedure';
 import { Vet } from '../../model/Vet';
 import { PetService } from '../../services/pet.service';
@@ -33,7 +32,8 @@ import { EditBookingFormComponent } from '../edit-booking-form/edit-booking-form
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './bookings-page.component.html',
-    styleUrl: './bookings-page.component.css'
+    styleUrl: './bookings-page.component.css',
+    standalone: true
 })
 export class BookingsPageComponent implements OnInit {
 

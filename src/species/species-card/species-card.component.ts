@@ -16,7 +16,8 @@ import { Species } from '../../model/Species';
         MatFormFieldModule
     ],
     templateUrl: './species-card.component.html',
-    styleUrl: './species-card.component.css'
+    styleUrl: './species-card.component.css',
+    standalone: true
 })
 export class SpeciesCardComponent {
 

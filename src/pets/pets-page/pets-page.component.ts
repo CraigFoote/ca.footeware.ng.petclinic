@@ -46,7 +46,8 @@ import { forkJoin, map } from 'rxjs';
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './pets-page.component.html',
-    styleUrl: './pets-page.component.css'
+    styleUrl: './pets-page.component.css',
+    standalone: true
 })
 export class PetsPageComponent implements OnInit {
 

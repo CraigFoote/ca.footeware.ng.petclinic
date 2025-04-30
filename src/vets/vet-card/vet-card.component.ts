@@ -16,7 +16,8 @@ import { Vet } from '../../model/Vet';
         MatFormFieldModule,
     ],
     templateUrl: './vet-card.component.html',
-    styleUrl: './vet-card.component.css'
+    styleUrl: './vet-card.component.css',
+    standalone: true
 })
 export class VetCardComponent {
 

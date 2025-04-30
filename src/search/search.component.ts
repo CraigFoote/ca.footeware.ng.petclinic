@@ -16,7 +16,6 @@ import { BookingCardComponent } from '../bookings/booking-card/booking-card.comp
 
 @Component({
     selector: 'app-search',
-    standalone: true,
     imports: [
         MatInputModule,
         MatFormFieldModule,
@@ -32,7 +31,8 @@ import { BookingCardComponent } from '../bookings/booking-card/booking-card.comp
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './search.component.html',
-    styleUrl: './search.component.css'
+    styleUrl: './search.component.css',
+    standalone: true
 })
 export class SearchComponent {
 

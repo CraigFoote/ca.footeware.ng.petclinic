@@ -27,7 +27,8 @@ import { AddVetFormComponent } from "../add-vet-form/add-vet-form.component";
     ],
     providers: [PetService],
     templateUrl: './vets-page.component.html',
-    styleUrl: './vets-page.component.css'
+    styleUrl: './vets-page.component.css',
+    standalone: true
 })
 export class VetsPageComponent implements OnInit {
 

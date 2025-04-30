@@ -12,7 +12,8 @@ import { Booking } from '../../model/Booking';
         MatCardModule
     ],
     templateUrl: './booking-card.component.html',
-    styleUrl: './booking-card.component.css'
+    styleUrl: './booking-card.component.css',
+    standalone: true
 })
 export class BookingCardComponent {
 

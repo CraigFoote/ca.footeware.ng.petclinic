@@ -36,7 +36,8 @@ import { Vet } from '../../model/Vet';
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './edit-booking-form.component.html',
-    styleUrl: './edit-booking-form.component.css'
+    styleUrl: './edit-booking-form.component.css',
+    standalone: true
 })
 export class EditBookingFormComponent implements OnChanges {
 

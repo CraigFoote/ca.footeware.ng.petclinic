@@ -1,5 +1,3 @@
-import { Owner } from "./Owner";
-import { Species } from "./Species";
 import { Gender } from './Gender';
 
 export class PetDTO {

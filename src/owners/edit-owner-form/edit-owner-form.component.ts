@@ -34,7 +34,8 @@ import { Province } from '../../model/Province';
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
     templateUrl: './edit-owner-form.component.html',
-    styleUrl: './edit-owner-form.component.css'
+    styleUrl: './edit-owner-form.component.css',
+    standalone: true
 })
 export class EditOwnerFormComponent implements OnChanges {
 

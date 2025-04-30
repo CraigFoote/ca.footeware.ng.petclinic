@@ -21,7 +21,8 @@ import { Procedure } from '../../model/Procedure';
         ReactiveFormsModule
     ],
     templateUrl: './add-procedure-form.component.html',
-    styleUrl: './add-procedure-form.component.css'
+    styleUrl: './add-procedure-form.component.css',
+    standalone: true
 })
 export class AddProcedureFormComponent {
 

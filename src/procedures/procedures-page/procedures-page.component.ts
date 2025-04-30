@@ -27,7 +27,8 @@ import { AddProcedureFormComponent } from "../add-procedure-form/add-procedure-f
     ],
     providers: [PetService],
     templateUrl: './procedures-page.component.html',
-    styleUrl: './procedures-page.component.css'
+    styleUrl: './procedures-page.component.css',
+    standalone: true
 })
 export class ProceduresPageComponent implements OnInit {
 
