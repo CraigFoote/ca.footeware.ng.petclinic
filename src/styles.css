@@ -15,7 +15,7 @@
 html,
 body {
     height: 100%;
-    background-image: url("../public/assets/images/limestone.jpg");
+    background-image: url(../public/assets/images/limestone.jpg);
     background-repeat: repeat;
     background-attachment: fixed;
     background-blend-mode: lighten;
