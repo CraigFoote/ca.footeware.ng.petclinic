@@ -15,7 +15,6 @@
 html,
 body {
     height: 100%;
-    /* background-color: #acb0be; */
     background-image: url("../public/assets/images/limestone.jpg");
     background-repeat: repeat;
     background-attachment: fixed;
