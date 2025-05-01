@@ -12,6 +12,9 @@
 </search>
 
 @if (bookings.length > 0) {
+]<div class="center">
+    <span>Hide Past Bookings</span><input type="checkbox" onclick="filterBookings()" value="Hide Past Bookings" />
+</div>
 <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
 }
 

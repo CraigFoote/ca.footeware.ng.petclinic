@@ -62,7 +62,8 @@ export class SearchComponent {
     }
 
     search(search: string) {
-        this.pets = []
+        this.pets = [];
+        this.bookings = [];
         this.petService.search(search).subscribe((value: any[]) => {
             // value is an array of arrays
             // each inner array contains objects of different types
@@ -78,6 +79,7 @@ export class SearchComponent {
                                     const pet = new Pet(item.name, species, item.gender, item.birthDate, owner);
                                     pet.id = item.id; // Assign the ID from the DTO
                                     this.pets.push(pet);
+                                    this.pets.sort((a, b) => a.name.localeCompare(b.name));
                                 });
                             });
                             break attrs;
@@ -89,6 +91,7 @@ export class SearchComponent {
                                         const booking = new Booking(new Date(item.date), pet, procedure, vet);
                                         booking.id = item.id; // Assign the ID from the DTO
                                         this.bookings.push(booking);
+                                        this.bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
                                     });
                                 });
                             });
