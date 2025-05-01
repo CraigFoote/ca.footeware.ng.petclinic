@@ -26,7 +26,7 @@
 
             <mat-form-field class="form-input left">
                 <mat-label for="birthDate">Birth Date</mat-label>
-                <input matInput id="birthDate" [matDatepicker]="birthDate" formControlName="birthDate" required />
+                <input type="date" matInput id="birthDate" [matDatepicker]="birthDate" formControlName="birthDate" required />
                 <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
                 <mat-datepicker #birthDate></mat-datepicker>
             </mat-form-field><br />

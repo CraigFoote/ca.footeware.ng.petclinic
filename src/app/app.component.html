@@ -1,31 +1,29 @@
-<main>
-  <div>
-    <header>
-      <mat-toolbar>
-        <mat-toolbar-row>
-          <span class="page-title">Shady Farms Pet Clinic</span>
-        </mat-toolbar-row>
-        <mat-toolbar-row>
-          <nav>
-            <ul>
-              <li><button mat-button routerLink="/search" routerLinkActive="active">Search</button></li>
-              <li><button mat-button routerLink="/bookings" routerLinkActive="active">Bookings</button></li>
-              <li><button mat-button [matMenuTriggerFor]="adminMenu">Admin</button></li>
-              <mat-menu #adminMenu="matMenu">
-                <button mat-menu-item routerLink="/pets" routerLinkActive="active">Pets</button>
-                <button mat-menu-item routerLink="/owners" routerLinkActive="active">Owners</button>
-                <button mat-menu-item routerLink="/species" routerLinkActive="active">Species</button>
-                <button mat-menu-item routerLink="/vets" routerLinkActive="active">Vets</button>
-                <button mat-menu-item routerLink="/procedures" routerLinkActive="active">Procedures</button>
-              </mat-menu>
-            </ul>
-          </nav>
-        </mat-toolbar-row>
-      </mat-toolbar>
-    </header>
-    <main>
-      <router-outlet />
-    </main>
-  </div>
-  <footer></footer>
-</main>
+<div>
+  <header>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="page-title">Shady Farms Pet Clinic</span>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <nav>
+          <ul>
+            <li><button mat-button routerLink="/search" routerLinkActive="active">Search</button></li>
+            <li><button mat-button routerLink="/bookings" routerLinkActive="active">Bookings</button></li>
+            <li><button mat-button [matMenuTriggerFor]="adminMenu">Admin</button></li>
+            <mat-menu #adminMenu="matMenu">
+              <button mat-menu-item routerLink="/pets" routerLinkActive="active">Pets</button>
+              <button mat-menu-item routerLink="/owners" routerLinkActive="active">Owners</button>
+              <button mat-menu-item routerLink="/species" routerLinkActive="active">Species</button>
+              <button mat-menu-item routerLink="/vets" routerLinkActive="active">Vets</button>
+              <button mat-menu-item routerLink="/procedures" routerLinkActive="active">Procedures</button>
+            </mat-menu>
+          </ul>
+        </nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+  <main>
+    <router-outlet />
+  </main>
+</div>
+<footer></footer>

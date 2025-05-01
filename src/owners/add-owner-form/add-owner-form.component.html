@@ -30,17 +30,18 @@
             </mat-form-field><br />
             <mat-form-field class="form-input">
                 <mat-label for="postalCode">Postal Code</mat-label>
-                <input matInput required minlength="6" maxlength="6" id="postalCode" name="postalCode"
-                    formControlName="postalCode" />
+                <input matInput required minlength="6" minlength="6" maxlength="6" id="postalCode" name="postalCode"
+                    formControlName="postalCode" placeholder="A1A1A1" />
             </mat-form-field><br />
             <mat-form-field class="form-input">
                 <mat-label for="email">Email</mat-label>
-                <input matInput required minlength="3" maxlength="24" id="email" name="email" formControlName="email" />
+                <input type="email" matInput required minlength="3" maxlength="24" id="email" name="email"
+                    formControlName="email" />
             </mat-form-field><br />
             <mat-form-field class="form-input">
                 <mat-label for="phone">Phone</mat-label>
-                <input matInput required type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" minlength="10" maxlength="12"
-                    id="phone" name="phone" formControlName="phone" />
+                <input type="tel" matInput required type="tel" minlength="12" maxlength="12" id="phone" name="phone"
+                    formControlName="phone" placeholder="xxx-xxx-xxxx" pattern="^[\d]{3}[\-][\d]{3}[\-][\d]{4}$" />
             </mat-form-field><br />
             <button mat-button type="submit" class="float-right" color="primary"
                 [disabled]="!addOwnerForm.valid">Save</button>

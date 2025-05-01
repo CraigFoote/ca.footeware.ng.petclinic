@@ -3,7 +3,7 @@
         <form [formGroup]="addBookingForm" (ngSubmit)="createBooking()">
             <mat-form-field class="form-input left">
                 <mat-label for="date">Date</mat-label>
-                <input matInput id="date" [matDatepicker]="date" formControlName="date" required />
+                <input type="date" matInput id="date" [matDatepicker]="date" formControlName="date" required />
                 <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
                 <mat-datepicker #date></mat-datepicker>
             </mat-form-field><br />
