@@ -1,8 +1,8 @@
-<mat-card appearance="raised" class="center card">
+<mat-card appearance="raised" class="card">
     <mat-card-content>
         <form [formGroup]="editBookingForm" (ngSubmit)="updateBooking()">
             <input type="hidden" formControlName="id" />
-            <mat-form-field class="form-input left">
+            <mat-form-field class="form-input">
                 <mat-label for="date">Date</mat-label>
                 <input matInput id="date" [matDatepicker]="date" formControlName="date" required />
                 <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>

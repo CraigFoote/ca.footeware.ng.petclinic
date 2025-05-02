@@ -2,7 +2,7 @@
     <mat-card-header>
         <mat-card-title class="bold">{{pet.name}}</mat-card-title>
     </mat-card-header>
-    <mat-card-content style="background-color: #b0bb94;">
+    <mat-card-content>
         <ul>
             <li>{{pet.species.name}}</li>
             <li>{{pet.gender}}</li>
@@ -11,7 +11,7 @@
                     href="tel:+6494461709">{{pet.owner.phone}}</a>)</li>
         </ul>
     </mat-card-content>
-    <mat-card-actions style="justify-content: flex-end;">
+    <mat-card-actions>
         @if (view == "admin") {
         <button mat-button color="primary" class="float-right" (click)="editPet(pet)">Edit</button>
         }

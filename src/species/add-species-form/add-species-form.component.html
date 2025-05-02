@@ -1,11 +1,11 @@
-<mat-card appearance="raised" class="center card">
+<mat-card appearance="raised" class="card">
     <mat-card-content>
         <form class="center" [formGroup]="addSpeciesForm" (ngSubmit)="createSpecies()">
-            <mat-form-field class="center form-input">
+            <mat-form-field class="form-input">
                 <mat-label>Name</mat-label>
                 <input matInput required minlength="1" maxlength="24" name="name" formControlName="name" />
             </mat-form-field>
-            <mat-form-field class="center form-input">
+            <mat-form-field class="form-input">
                 <mat-label>Description</mat-label>
                 <textarea matInput required minlength="1" maxlength="300" cdkTextareaAutosize name="description"
                     formControlName="description"></textarea>

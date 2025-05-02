@@ -3,8 +3,8 @@
 <img src="../assets/images/5pets.png" class="center" alt="5 pets" />
 
 @if (mode == 'list'){
-<div class="center">
-    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Pet</button>
+<div class="center center-content">
+    <button mat-button color="primary" (click)="setMode('add')">Add a Pet</button>
 </div>
 <app-pet-card [view]="'admin'" [pets]="pets" (editClicked)="editPet($event)" (bookClicked)="bookPet($event)" />
 }

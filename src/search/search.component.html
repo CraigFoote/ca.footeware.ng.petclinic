@@ -1,23 +1,40 @@
 <img src="../assets/images/vetPets.png" class="center" alt="vet pets" />
 
 <search>
-    <form class="center" (ngSubmit)="submitSearch(search.value)">
-        <mat-form-field style="width: 100%;" class="form-input">
+    <form (ngSubmit)="submitSearch(search.value)">
+        <mat-form-field class="form-input">
             <mat-label>Search</mat-label>
             <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
-                class="form-input" />
+                class="form-input center" autofocus />
             <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
         </mat-form-field>
     </form>
 </search>
 
-@if (bookings.length > 0) {
-]<div class="center">
-    <span>Hide Past Bookings</span><input type="checkbox" onclick="filterBookings()" value="Hide Past Bookings" />
-</div>
-<app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
-}
-
-@if (pets.length > 0) {
-<app-pet-card [view]="'info'" [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
-}
+<mat-accordion multi>
+    @if (bookings.length > 0) {
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Bookings</mat-panel-title>
+            <mat-panel-description>
+                {{bookings.length}} result(s)
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div id="search-filter">
+            <mat-checkbox (click)="toggleBookingsFilter()"><span>Hide Past Bookings</span></mat-checkbox>
+        </div>
+        <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
+    </mat-expansion-panel>
+    }
+    @if (pets.length > 0) {
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>Pets</mat-panel-title>
+            <mat-panel-description>
+                {{pets.length}} result(s)
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <app-pet-card [view]="'info'" [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
+    </mat-expansion-panel>
+    }
+</mat-accordion>

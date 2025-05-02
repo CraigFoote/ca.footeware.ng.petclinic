@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +21,8 @@ import { BookingCardComponent } from '../bookings/booking-card/booking-card.comp
     imports: [
         MatInputModule,
         MatFormFieldModule,
+        MatCheckboxModule,
+        MatExpansionModule,
         FormsModule,
         CommonModule,
         MatCardModule,
@@ -36,8 +40,11 @@ import { BookingCardComponent } from '../bookings/booking-card/booking-card.comp
 })
 export class SearchComponent {
 
+    private filterBookings: boolean = true;
+
     @Input() pets: Pet[] = [];
     @Input() bookings: Booking[] = [];
+    tempBookings: Booking[] = [];
 
     constructor(private petService: PetService, private router: Router) { }
 
@@ -101,5 +108,21 @@ export class SearchComponent {
                 }
             }
         });
+    }
+
+    toggleBookingsFilter() {
+        this.filterBookings = !this.filterBookings;
+        if (this.filterBookings) {
+            this.tempBookings = this.bookings;
+            this.bookings = this.bookings.filter(booking => {
+                const now = new Date();
+                now.setHours(0, 0, 0, 0);
+                const bookingDate = new Date(booking.date);
+                bookingDate.setHours(0, 0, 0, 0);
+                return bookingDate.getTime() >= now.getTime();
+            });
+        } else {
+            this.bookings = this.tempBookings;
+        }
     }
 }

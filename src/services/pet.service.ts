@@ -13,7 +13,7 @@ import { BookingDTO } from "../model/BookingDTO";
 })
 export class PetService {
 
-    private host: string = 'http://localhost:9090';
+    private host: string = 'http://localhost:10000';
 
     constructor(@Inject(HttpClient) private http: HttpClient) { }
 

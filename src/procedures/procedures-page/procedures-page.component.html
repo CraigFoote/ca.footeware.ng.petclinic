@@ -3,8 +3,8 @@
 <img src="../assets/images/dogTiltingHead.png" class="center" alt="dog tilting head" />
 
 @if (mode == 'list'){
-<div class="center">
-    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Procedure</button>
+<div class="center center-content">
+    <button mat-button color="primary" (click)="setMode('add')">Add a Procedure</button>
 </div>
 
 <app-procedure-card [procedures]="procedures" (deleteClicked)="deleteProcedure($event)"

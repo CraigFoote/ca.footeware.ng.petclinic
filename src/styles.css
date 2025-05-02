@@ -3,12 +3,12 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: "abkk";
+    font-family: abkk;
     src: url(../public/assets/fonts/AustieBostKittenKlub.ttf) format("truetype");
 }
 
 @font-face {
-    font-family: "decker";
+    font-family: decker;
     src: url(../public/assets/fonts/Decker.ttf) format("truetype");
 }
 
@@ -19,17 +19,86 @@ body {
     background-repeat: repeat;
     background-attachment: fixed;
     background-blend-mode: lighten;
+    margin: 0;
+    font-family: decker !important;
+    font-size: 1.2em;
 }
 
-body {
-    margin: 0;
-    font-family: "decker", sans-serif;
-    font-size: 20px;
+h1 {
+    font-family: abkk;
+    font-size: 2.0em;
+    text-align: center;
 }
 
 .center {
-    justify-content: center;
     display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-content {
+    text-align: center;
+}
+
+.form-input {
+    width: 100%;
+}
+
+.mat-mdc-card-title {
+    font-family: decker !important;
+}
+
+.mdc-button__label {
+    font-family: decker !important;
+}
+
+.mat-mdc-card-actions {
+    justify-content: right;
+}
+
+.card {
+    padding: 20px;
+    min-width: 450px;
+    max-width: 750px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: decker;
+    background-color: rgba(180, 190, 150, 0.5) !important;
+}
+
+.card:hover {
+    background-color: rgba(180, 190, 150, 0.8) !important;
+}
+
+.bold {
+    font-weight: bolder !important;
+}
+
+a {
+    text-decoration: none;
+    color: #2c70b8;
+}
+
+.float-right {
+    float: right;
+}
+
+img {
+    margin: 20px;
+}
+
+button {
+    font-size: 1.0em !important;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.radio-group {
+    text-align: left;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
 }

@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 .page-title {
-    font-family: "abkk";
+    font-family: abkk;
     font-size: 1.7em;
     color: #181926;
 }
 
 .mat-toolbar {
     padding: 10px;
-    background-color: #949cbb;
+    background-color: rgba(170, 190, 215, 0.5);
     border-bottom: 3px solid #626880;
 }
 
@@ -20,7 +20,7 @@ nav a {
     margin: 5px;
     color: #424655;
     text-decoration: none;
-    font-family: "decker";
+    font-family: decker;
     font-size: 1.1em;
 }
 
@@ -33,10 +33,6 @@ nav li {
 nav button {
     margin: 5px;
     color: #424655;
-    font-family: "decker";
+    font-family: decker;
     font-size: 1.1em;
-}
-
-body {
-    font-family: "decker", sans-serif;
 }

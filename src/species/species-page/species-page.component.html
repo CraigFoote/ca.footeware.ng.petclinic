@@ -3,8 +3,8 @@
 <img src="../assets/images/pig.png" class="center" alt="vet" />
 
 @if (mode == 'list'){
-<div class="center">
-    <button mat-button color="primary" (click)="setMode('add')" class="center">Add a Species</button>
+<div class="center center-content">
+    <button mat-button color="primary" (click)="setMode('add')">Add a Species</button>
 </div>
 <app-species-card [allSpecies]="allSpecies" (deleteClicked)="deleteSpecies($event)"
     (editClicked)="editSpecies($event)" />

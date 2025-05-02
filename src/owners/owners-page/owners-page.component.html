@@ -3,8 +3,8 @@
 <img src="../assets/images/dogChasingBird.png" class="center" alt="dog on leash chasing bird" />
 
 @if (mode == 'list'){
-<div class="center">
-    <button mat-button color="primary" (click)="setMode('add')" class="center">Add an Owner</button>
+<div class="center center-content">
+    <button mat-button color="primary" (click)="setMode('add')">Add an Owner</button>
 </div>
 <app-owner-card [owners]="owners" (deleteClicked)="deleteOwner($event)" (editClicked)="editOwner($event)" />
 }
