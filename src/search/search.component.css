@@ -35,14 +35,6 @@ mat-checkbox span {
     font-family: decker;
 }
 
-mat-expansion-panel {
-    min-width: 400px;
-    max-width: 750px;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 mat-panel-title {
     font-size: 1.0em;
     font-weight: bold;
@@ -52,4 +44,18 @@ mat-panel-title {
 mat-panel-description {
     font-size: 1.0em;
     font-family: decker !important;
+}
+
+mat-tab-group {
+    min-width: 400px;
+    max-width: 750px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tab-header {
+    font-size: 1.2em;
+    font-family: decker;
+    font-weight: bolder;
 }

@@ -5,7 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,7 @@ import { BookingCardComponent } from '../bookings/booking-card/booking-card.comp
         MatInputModule,
         MatFormFieldModule,
         MatCheckboxModule,
-        MatExpansionModule,
+        MatTabsModule,
         FormsModule,
         CommonModule,
         MatCardModule,
@@ -98,7 +98,7 @@ export class SearchComponent {
                                         const booking = new Booking(new Date(item.date), pet, procedure, vet);
                                         booking.id = item.id; // Assign the ID from the DTO
                                         this.bookings.push(booking);
-                                        this.bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+                                        this.bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
                                     });
                                 });
                             });

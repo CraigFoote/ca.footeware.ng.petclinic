@@ -11,30 +11,24 @@
     </form>
 </search>
 
-<mat-accordion multi>
-    @if (bookings.length > 0) {
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>Bookings</mat-panel-title>
-            <mat-panel-description>
-                {{bookings.length}} result(s)
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-        <div id="search-filter">
+<mat-tab-group>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="tab-header">Bookings</span>
+        </ng-template>
+        @if (bookings.length > 0) {
+        <!--<div id="search-filter">
             <mat-checkbox (click)="toggleBookingsFilter()"><span>Hide Past Bookings</span></mat-checkbox>
-        </div>
+        </div>-->
         <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
-    </mat-expansion-panel>
-    }
-    @if (pets.length > 0) {
-    <mat-expansion-panel>
-        <mat-expansion-panel-header>
-            <mat-panel-title>Pets</mat-panel-title>
-            <mat-panel-description>
-                {{pets.length}} result(s)
-            </mat-panel-description>
-        </mat-expansion-panel-header>
+        }
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <span class="tab-header">Pets</span>
+        </ng-template>
+        @if (pets.length > 0) {
         <app-pet-card [view]="'info'" [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
-    </mat-expansion-panel>
-    }
-</mat-accordion>
+        }
+    </mat-tab>
+</mat-tab-group>
