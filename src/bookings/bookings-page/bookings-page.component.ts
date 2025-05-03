@@ -97,7 +97,7 @@ export class BookingsPageComponent implements OnInit {
                 );
                 return forkJoin(observables);
             }),
-            map(bookings => bookings.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())), // Use standard map
+            map(bookings => bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())), // reverse sort
             catchError(error => {
                 console.error('Error fetching bookings:', error);
                 return of([]); // Return empty array on error

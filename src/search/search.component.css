@@ -1,6 +1,6 @@
 search {
     text-align: center;
-    min-width: 400px;
+    min-width: 300px;
     max-width: 750px;
     width: 80%;
     margin-left: auto;
@@ -8,7 +8,7 @@ search {
 }
 
 form {
-    min-width: 400px;
+    min-width: 300px;
     max-width: 750px;
     width: 80%;
     margin-left: auto;
@@ -16,7 +16,7 @@ form {
 }
 
 #search-filter {
-    min-width: 400px;
+    min-width: 300px;
     max-width: 750px;
     width: 80%;
     margin-left: auto;
@@ -32,22 +32,22 @@ ul>li {
 
 mat-checkbox span {
     font-size: 1.0em;
-    font-family: decker;
+    font-family: josefin;
 }
 
 mat-panel-title {
     font-size: 1.0em;
     font-weight: bold;
-    font-family: decker !important;
+    font-family: josefin !important;
 }
 
 mat-panel-description {
     font-size: 1.0em;
-    font-family: decker !important;
+    font-family: josefin !important;
 }
 
 mat-tab-group {
-    min-width: 400px;
+    min-width: 300px;
     max-width: 750px;
     width: 80%;
     margin-left: auto;
@@ -55,7 +55,7 @@ mat-tab-group {
 }
 
 .tab-header {
-    font-size: 1.2em;
-    font-family: decker;
-    font-weight: bolder;
+    font-size: 1.4em;
+    font-family: josefin;
+    font-weight: 900;
 }

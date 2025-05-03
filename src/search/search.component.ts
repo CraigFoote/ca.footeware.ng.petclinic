@@ -86,19 +86,18 @@ export class SearchComponent {
                                     const pet = new Pet(item.name, species, item.gender, item.birthDate, owner);
                                     pet.id = item.id; // Assign the ID from the DTO
                                     this.pets.push(pet);
-                                    this.pets.sort((a, b) => a.name.localeCompare(b.name));
                                 });
                             });
                             break attrs;
                         } else if (attr === 'procedureId') {
                             // we have a Booking
+                            // resolve ids to objects
                             const pet = this.petService.getPetById(item.petId).subscribe((pet: any) => {
                                 const procedure = this.petService.getProcedureById(item.procedureId).subscribe((procedure: any) => {
                                     const vet = this.petService.getVetById(item.vetId).subscribe((vet: any) => {
                                         const booking = new Booking(new Date(item.date), pet, procedure, vet);
                                         booking.id = item.id; // Assign the ID from the DTO
                                         this.bookings.push(booking);
-                                        this.bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
                                     });
                                 });
                             });
@@ -106,6 +105,8 @@ export class SearchComponent {
                         }
                     }
                 }
+                this.pets.sort((a, b) => a.name.localeCompare(b.name));
+                this.bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
             }
         });
     }

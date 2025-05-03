@@ -8,8 +8,8 @@
 }
 
 @font-face {
-    font-family: decker;
-    src: url(../public/assets/fonts/Decker.ttf) format("truetype");
+    font-family: josefin;
+    src: url(../public/assets/fonts/JosefinSans-SemiBold.ttf) format("truetype");
 }
 
 html,
@@ -20,13 +20,13 @@ body {
     background-attachment: fixed;
     background-blend-mode: lighten;
     margin: 0;
-    font-family: decker !important;
-    font-size: 1.2em;
+    font-family: josefin !important;
+    font-size: 1.1em;
 }
 
 h1 {
     font-family: abkk;
-    font-size: 2.0em;
+    font-size: 1.5em;
     text-align: center;
 }
 
@@ -44,12 +44,14 @@ h1 {
     width: 100%;
 }
 
+
+
 .mat-mdc-card-title {
-    font-family: decker !important;
+    font-family: josefin !important;
 }
 
 .mdc-button__label {
-    font-family: decker !important;
+    font-family: josefin !important;
 }
 
 .mat-mdc-card-actions {
@@ -58,14 +60,15 @@ h1 {
 
 .card {
     padding: 20px;
-    min-width: 450px;
+    min-width: 300px;
     max-width: 750px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-    font-family: decker;
+    font-family: josefin;
+    font-size: larger;
     background-color: rgba(180, 190, 150, 0.5) !important;
 }
 

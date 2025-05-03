@@ -2,7 +2,7 @@
 
 .page-title {
     font-family: abkk;
-    font-size: 1.7em;
+    font-size: 1.4em;
     color: #181926;
 }
 
@@ -26,12 +26,12 @@ nav a {
 
 nav li {
     list-style-type: none;
-    display: inline-block;
-    padding-right: 5px;
+    display: inline;
+    margin-left: -25px;
 }
 
 nav button {
-    margin: 5px;
+    margin: 10px;
     color: #424655;
     font-family: decker;
     font-size: 1.1em;
