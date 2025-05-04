@@ -54,6 +54,11 @@ mat-tab-group {
     margin-right: auto;
 }
 
+mat-label {
+    font-size: 1.3em;
+    font-family: josefin;
+}
+
 .tab-header {
     font-size: 1.4em;
     font-family: josefin;

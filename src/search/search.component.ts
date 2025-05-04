@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
 import { provideNativeDateAdapter } from '@angular/material/core';
@@ -25,6 +26,7 @@ import { Gender } from '../model/Gender';
         MatFormFieldModule,
         MatCheckboxModule,
         MatTabsModule,
+        MatIconModule,
         FormsModule,
         CommonModule,
         MatCardModule,

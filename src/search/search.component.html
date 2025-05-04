@@ -3,11 +3,12 @@
 <search>
     <form (ngSubmit)="submitSearch(search.value)">
         <mat-form-field class="form-input">
-            <mat-label>Search</mat-label>
-            <input matInput #search required minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
-                class="form-input center" autofocus />
+            <mat-label><mat-icon fontIcon="search"></mat-icon>Search</mat-label>
+            <input matInput #search minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
+                class="form-input center" />
             <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
         </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
     </form>
 </search>
 
