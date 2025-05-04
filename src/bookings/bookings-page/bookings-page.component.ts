@@ -49,38 +49,41 @@ export class BookingsPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
         let intendedMode = 'list';
-        const state = history.state as { petToBook: Pet, mode: string };
-        if (state && state.petToBook) { // Check if state and petToBook exist
+        const state = history.state as any;
+        if (state?.petToBook) { // Check if state and petToBook exist
             this.petToBook = state.petToBook;
             intendedMode = state.mode || 'list'; // Use mode from state, default to 'list'
         }
 
-        // 2. Fetch all data concurrently
+        // fetch all data concurrently
         forkJoin({
             bookings: this.fetchAllBookings(),
             pets: this.fetchAllPets(),
             procedures: this.fetchAllProcedures(),
             vets: this.fetchAllVets()
         }).subscribe(results => {
-            // 3. Assign fetched data
+            // assign fetched data
             this.bookings = results.bookings;
             this.pets = results.pets;
             this.procedures = results.procedures;
             this.vets = results.vets;
 
-            // 4. Set the mode *after* all data is loaded
+            // set the mode *after* all data is loaded
             this.mode = intendedMode;
         });
     }
 
-    // Helper methods to return Observables for forkJoin
+    /**
+     * Fetches all bookings and the associated Pet, Procedure, and Vet objects.
+     * Sorts the bookings in descending order of date.
+     * @returns An Observable of an array of Booking objects - may be empty.
+     */
     private fetchAllBookings(): Observable<Booking[]> {
         return this.petService.getAllBookings().pipe(
             switchMap(bookingDTOs => {
                 if (!bookingDTOs || bookingDTOs.length === 0) {
-                    return of([]); // Return empty array if no DTOs
+                    return of([]); // return empty array if no DTOs
                 }
                 const observables = bookingDTOs.map(bookingDTO =>
                     forkJoin({
@@ -88,7 +91,7 @@ export class BookingsPageComponent implements OnInit {
                         procedure: this.petService.getProcedureById(bookingDTO.procedureId),
                         vet: this.petService.getVetById(bookingDTO.vetId)
                     }).pipe(
-                        map(result => { // Use standard map
+                        map(result => {
                             const booking = new Booking(bookingDTO.date, result.pet, result.procedure, result.vet);
                             booking.id = bookingDTO.id;
                             return booking;
@@ -100,7 +103,7 @@ export class BookingsPageComponent implements OnInit {
             map(bookings => bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())), // reverse sort
             catchError(error => {
                 console.error('Error fetching bookings:', error);
-                return of([]); // Return empty array on error
+                return of([]); // return empty array on error
             })
         );
     }
