@@ -70,11 +70,11 @@ export class SearchComponent {
     }
 
     editPet(pet: Pet) {
-        throw new Error('Method not implemented.');
+        this.router.navigate(['/pets'], { state: { petToEdit: pet, mode: 'edit' } });
     }
 
-    editBooking($event: Booking) {
-        throw new Error('Method not implemented.');
+    editBooking(booking: Booking) {
+        this.router.navigate(['/bookings'], { state: { bookingToEdit: booking, mode: 'edit' } });
     }
 
     /**
@@ -82,7 +82,7 @@ export class SearchComponent {
      * @param pet - The Pet object to be booked.
      */
     bookPet(pet: Pet): void {
-        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add', view: 'info' } });
+        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add' } });
     }
 
     /**

@@ -44,8 +44,6 @@ h1 {
     width: 100%;
 }
 
-
-
 .mat-mdc-card-title {
     font-family: josefin !important;
 }
@@ -97,6 +95,10 @@ button {
     font-size: 1.0em !important;
     font-weight: bold;
     margin: 5px;
+}
+
+.larger {
+    font-size: x-large !important;
 }
 
 .radio-group {

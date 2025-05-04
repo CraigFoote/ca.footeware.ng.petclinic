@@ -13,7 +13,6 @@ export const routes: Routes = [
     { path: 'pets', component: PetsPageComponent },
     { path: 'vets', component: VetsPageComponent },
     { path: 'owners', component: OwnersPageComponent},
-    { path: 'owners/:id', component: OwnersPageComponent},
     { path: 'species', component: SpeciesPageComponent },
     { path: 'procedures', component: ProceduresPageComponent },
     { path: '', redirectTo: '/search', pathMatch: 'full' },

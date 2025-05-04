@@ -4,9 +4,9 @@
 
 @if (mode == 'list'){
 <div class="center center-content">
-    <button mat-button color="primary" (click)="setMode('add')">Add a Pet</button>
+    <button mat-button color="primary" class="larger" (click)="setMode('add')">Add a Pet</button>
 </div>
-<app-pet-card [view]="'admin'" [pets]="pets" (editClicked)="editPet($event)" (bookClicked)="bookPet($event)" />
+<app-pet-card [pets]="pets" (editClicked)="editPet($event)" (bookClicked)="bookPet($event)" />
 }
 
 @if (mode === 'add') {

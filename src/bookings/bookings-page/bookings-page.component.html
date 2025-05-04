@@ -4,7 +4,7 @@
 
 @if (mode == 'list'){
 <div class="center center-content">
-    <button mat-button color="primary" (click)="setMode('add')">Add a Booking</button>
+    <button mat-button color="primary" class="larger" (click)="setMode('add')">Add a Booking</button>
 </div>
 <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
 }

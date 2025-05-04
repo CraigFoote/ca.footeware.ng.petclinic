@@ -4,7 +4,7 @@
 
 @if (mode == 'list'){
 <div class="center center-content">
-    <button mat-button color="primary" (click)="setMode('add')">Add a Species</button>
+    <button mat-button color="primary" class="larger" (click)="setMode('add')">Add a Species</button>
 </div>
 <app-species-card [allSpecies]="allSpecies" (deleteClicked)="deleteSpecies($event)"
     (editClicked)="editSpecies($event)" />

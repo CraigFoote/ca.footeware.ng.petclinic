@@ -11,24 +11,22 @@
     </form>
 </search>
 
+@if (bookings.length > 0 || pets.length > 0) {
 <mat-tab-group>
     <mat-tab>
         <ng-template mat-tab-label>
             <span class="tab-header">Bookings</span>
         </ng-template>
-        @if (bookings.length > 0) {
         <div id="search-filter">
             <mat-checkbox (change)="toggleBookingsFilter($event)"><span>Hide Past Bookings</span></mat-checkbox>
         </div>
         <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
-        }
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
             <span class="tab-header">Pets</span>
         </ng-template>
-        @if (pets.length > 0) {
-        <app-pet-card [view]="'info'" [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
-        }
+        <app-pet-card [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
     </mat-tab>
 </mat-tab-group>
+}

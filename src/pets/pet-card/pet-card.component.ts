@@ -19,7 +19,6 @@ import { Pet } from '../../model/Pet';
 })
 export class PetCardComponent {
 
-    @Input() view?: string;
     @Input() pets: Pet[] = [];
     @Output() editClicked = new EventEmitter<Pet>();
     @Output() bookClicked = new EventEmitter<Pet>();
