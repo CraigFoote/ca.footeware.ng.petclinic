@@ -15,7 +15,7 @@
                 </mat-select>
             </mat-form-field><br />
 
-            <div class="radio-group">
+            <div> <!-- surround with div to get proper padding-->
                 <mat-radio-group class="form-input" formControlName="gender" required>
                     @for (gender of genders; track gender) {
                     <mat-radio-button [value]="gender">{{gender}}</mat-radio-button>

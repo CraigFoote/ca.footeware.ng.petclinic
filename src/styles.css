@@ -74,8 +74,16 @@ h1 {
     background-color: rgba(180, 190, 150, 0.8) !important;
 }
 
-.bold {
-    font-weight: bolder !important;
+mat-card-content {
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 200px;
+    max-width: 450px;
+    width: 80%;
+    text-align: left;
 }
 
 a {
@@ -97,13 +105,15 @@ button {
     margin: 5px;
 }
 
+.bold {
+    font-weight: bolder !important;
+}
+
 .larger {
     font-size: x-large !important;
 }
 
-.radio-group {
-    text-align: left;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+span.no-wrap {
+    white-space: nowrap;
 }
+
