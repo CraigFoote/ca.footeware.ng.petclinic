@@ -16,7 +16,8 @@
 <mat-tab-group>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span class="tab-header">Bookings</span>
+            <span class="tab-header" matBadge="{{bookings.length}}" matBadgeOverlap="false"
+                matBadgeSize="large">Bookings</span>
         </ng-template>
         <div id="search-filter">
             <mat-checkbox (change)="toggleBookingsFilter($event)"><span>Hide Past Bookings</span></mat-checkbox>
@@ -25,7 +26,7 @@
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span class="tab-header">Pets</span>
+            <span class="tab-header" matBadge="{{pets.length}}" matBadgeOverlap="false" matBadgeSize="large">Pets</span>
         </ng-template>
         <app-pet-card [pets]="pets" (bookClicked)="bookPet($event)" (editClicked)="editPet($event)" />
     </mat-tab>

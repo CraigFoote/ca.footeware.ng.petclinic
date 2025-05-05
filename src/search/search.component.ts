@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatBadgeModule} from '@angular/material/badge';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ import { Gender } from '../model/Gender';
         CommonModule,
         MatCardModule,
         MatButtonModule,
+        MatBadgeModule,
         PetCardComponent,
         BookingCardComponent
     ],
