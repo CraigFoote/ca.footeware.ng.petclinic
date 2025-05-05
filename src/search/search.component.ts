@@ -5,9 +5,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatCheckboxChange, MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTabsModule } from '@angular/material/tabs';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSlideToggleChange, MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
@@ -25,7 +25,6 @@ import { Gender } from '../model/Gender';
     imports: [
         MatInputModule,
         MatFormFieldModule,
-        MatCheckboxModule,
         MatTabsModule,
         MatIconModule,
         FormsModule,
@@ -33,6 +32,7 @@ import { Gender } from '../model/Gender';
         MatCardModule,
         MatButtonModule,
         MatBadgeModule,
+        MatSlideToggleModule,
         PetCardComponent,
         BookingCardComponent
     ],
@@ -124,15 +124,10 @@ export class SearchComponent {
     }
 
     /**
-     * Toggles the filter for bookings to either show or hide past bookings based on the checkbox state.
-     * When the checkbox is checked, it filters the list of bookings to only include those with dates
-     * equal to or later than the current date. When unchecked, it restores the original list of bookings.
-     * The temporary state of the bookings is stored in `tempBookings` for restoration when the filter is removed.
-     *
-     * @param $event - The checkbox change event containing the checked state.
-     * @returns A promise that resolves to void when the filtering is complete.
+     * Toggles the visibility of past bookings.
+     * @param $event - The MatSlideToggle event.
      */
-    async toggleBookingsFilter($event: MatCheckboxChange): Promise<void> {
+    async toggleBookingsFilter($event: MatSlideToggleChange): Promise<void> {
         const isChecked = $event?.checked;
         if (isChecked === true) {
             const now = new Date();

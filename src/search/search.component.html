@@ -3,12 +3,14 @@
 <search>
     <form (ngSubmit)="submitSearch(search.value)">
         <mat-form-field class="form-input">
-            <mat-label><mat-icon fontIcon="search"></mat-icon>Search</mat-label>
+            <mat-label>Search</mat-label>
             <input matInput #search minlength="1" maxlength="24" placeholder="Ex. rudy" name="search"
                 class="form-input center" />
             <mat-hint align="end">{{search.value.length}} / 24</mat-hint>
         </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Submit</button>
+        <button mat-fab color="primary" type="submit" title="Submit">
+            <mat-icon>search</mat-icon>
+        </button>
     </form>
 </search>
 
@@ -20,7 +22,7 @@
                 matBadgeSize="large">Bookings</span>
         </ng-template>
         <div id="search-filter">
-            <mat-checkbox (change)="toggleBookingsFilter($event)"><span>Hide Past Bookings</span></mat-checkbox>
+            <mat-slide-toggle (change)="toggleBookingsFilter($event)"><span>Hide Past Bookings</span></mat-slide-toggle><br />
         </div>
         <app-booking-card [bookings]="bookings" (editClicked)="editBooking($event)" />
     </mat-tab>

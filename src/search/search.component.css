@@ -30,8 +30,8 @@ ul>li {
     margin-bottom: 10px;
 }
 
-mat-checkbox span {
-    font-size: 1.0em;
+mat-slide-toggle span {
+    font-size: 1.2em;
     font-family: josefin;
 }
 
