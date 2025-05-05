@@ -158,6 +158,6 @@ export class PetsPageComponent implements OnInit {
 
     bookPet(pet: Pet) {
         // Use router state to pass the complex Pet object
-        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add', view: 'info' } });
+        this.router.navigate(['/bookings'], { state: { petToBook: pet, mode: 'add' } });
     }
 }
