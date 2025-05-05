@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { forkJoin, map } from 'rxjs';
+import { Router } from '@angular/router';
 import { Booking } from '../../model/Booking';
 import { BookingDTO } from '../../model/BookingDTO';
 import { Pet } from '../../model/Pet';
@@ -37,23 +38,27 @@ import { EditBookingFormComponent } from '../edit-booking-form/edit-booking-form
 })
 export class BookingsPageComponent implements OnInit {
 
-    mode: string = 'list'; // Initialize with default
+    mode: string = 'list';
     booking?: Booking;
     bookings: Booking[] = [];
     pets: Pet[] = [];
     procedures: Procedure[] = [];
     vets: Vet[] = [];
-    petToBook?: Pet; // To hold the pet passed from search
+    petToBook?: Pet; // to hold the pet passed from search
+    bookingToEdit?: Booking; // to hold the booking passed from search
 
-    constructor(private petService: PetService) {
+    constructor(private petService: PetService, private router: Router) {
     }
 
     ngOnInit(): void {
         let intendedMode = 'list';
         const state = history.state as any;
-        if (state?.petToBook) { // Check if state and petToBook exist
+        if (state?.petToBook) {
             this.petToBook = state.petToBook;
-            intendedMode = state.mode || 'list'; // Use mode from state, default to 'list'
+            intendedMode = state.mode || 'list';
+        } else if (state?.bookingToEdit) {
+            this.bookingToEdit = state.bookingToEdit;
+            intendedMode = state.mode || 'list';
         }
 
         // fetch all data concurrently
@@ -70,6 +75,7 @@ export class BookingsPageComponent implements OnInit {
             this.vets = results.vets;
 
             // set the mode *after* all data is loaded
+            console.log(intendedMode);
             this.mode = intendedMode;
         });
     }
@@ -159,6 +165,9 @@ export class BookingsPageComponent implements OnInit {
     setMode(mode: string) {
         if (mode === 'add') {
             this.petToBook = undefined;
+        } else if (mode === 'edit') {
+            console.log("clearing this.bookingToEdit", this.bookingToEdit);
+            this.bookingToEdit = undefined;
         }
         this.mode = mode;
     }
@@ -181,8 +190,8 @@ export class BookingsPageComponent implements OnInit {
     }
 
     editBooking(booking: Booking) {
-        this.booking = booking;
-        this.setMode('edit');
+
+        this.router.navigate(['/bookings'], { state: { bookingToEdit: booking, mode: 'edit' } });
     }
 
     updateBooking(booking: Booking) {
