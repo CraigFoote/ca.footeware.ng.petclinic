@@ -2,7 +2,7 @@
 import { Observable, of } from 'rxjs';
 // Remove map alias from 'rxjs/operators', keep switchMap and catchError if still needed from there (though often imported from 'rxjs' now)
 import { switchMap, catchError } from 'rxjs/operators';
-import { CommonModule } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -22,13 +22,12 @@ import { EditBookingFormComponent } from '../edit-booking-form/edit-booking-form
 @Component({
     selector: 'app-bookings-page',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        BookingCardComponent,
-        AddBookingFormComponent,
-        EditBookingFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    BookingCardComponent,
+    AddBookingFormComponent,
+    EditBookingFormComponent
+],
     providers: [PetService,
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],

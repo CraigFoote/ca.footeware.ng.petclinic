@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
@@ -23,19 +23,18 @@ import { Gender } from '../model/Gender';
 @Component({
     selector: 'app-search',
     imports: [
-        MatInputModule,
-        MatFormFieldModule,
-        MatTabsModule,
-        MatIconModule,
-        FormsModule,
-        CommonModule,
-        MatCardModule,
-        MatButtonModule,
-        MatBadgeModule,
-        MatSlideToggleModule,
-        PetCardComponent,
-        BookingCardComponent
-    ],
+    MatInputModule,
+    MatFormFieldModule,
+    MatTabsModule,
+    MatIconModule,
+    FormsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatBadgeModule,
+    MatSlideToggleModule,
+    PetCardComponent,
+    BookingCardComponent
+],
     providers: [PetService,
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },

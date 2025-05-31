@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core'; // Import ChangeDetectorRef, OnChanges, SimpleChanges
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -19,18 +19,17 @@ import { Booking } from '../../model/Booking';
 @Component({
     selector: 'app-add-booking-form',
     imports: [
-        CommonModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSlideToggleModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
+],
     providers: [
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,17 +14,16 @@ import { AddProcedureFormComponent } from "../add-procedure-form/add-procedure-f
 @Component({
     selector: 'app-procedures-page',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        ProcedureCardComponent,
-        EditProcedureFormComponent,
-        AddProcedureFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ProcedureCardComponent,
+    EditProcedureFormComponent,
+    AddProcedureFormComponent
+],
     providers: [PetService],
     templateUrl: './procedures-page.component.html',
     styleUrl: './procedures-page.component.css',

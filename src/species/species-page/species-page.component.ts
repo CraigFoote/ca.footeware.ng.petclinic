@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -13,15 +13,14 @@ import { AddSpeciesFormComponent } from "../add-species-form/add-species-form.co
 @Component({
     selector: 'app-species-page',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        SpeciesCardComponent,
-        EditSpeciesFormComponent,
-        AddSpeciesFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    SpeciesCardComponent,
+    EditSpeciesFormComponent,
+    AddSpeciesFormComponent
+],
     providers: [PetService],
     templateUrl: './species-page.component.html',
     styleUrl: './species-page.component.css',

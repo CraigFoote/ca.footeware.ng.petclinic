@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,17 +14,16 @@ import { AddVetFormComponent } from "../add-vet-form/add-vet-form.component";
 @Component({
     selector: 'app-vets-page',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        VetCardComponent,
-        EditVetFormComponent,
-        AddVetFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    VetCardComponent,
+    EditVetFormComponent,
+    AddVetFormComponent
+],
     providers: [PetService],
     templateUrl: './vets-page.component.html',
     styleUrl: './vets-page.component.css',

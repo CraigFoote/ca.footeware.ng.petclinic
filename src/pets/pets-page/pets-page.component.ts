@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,21 +26,20 @@ import { forkJoin, map } from 'rxjs';
 @Component({
     selector: 'app-pets',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        PetCardComponent,
-        AddPetFormComponent,
-        EditPetFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    PetCardComponent,
+    AddPetFormComponent,
+    EditPetFormComponent
+],
     providers: [PetService,
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },

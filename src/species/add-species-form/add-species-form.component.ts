@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,18 +14,17 @@ import { Species } from '../../model/Species';
 @Component({
     selector: 'app-add-species-form',
     imports: [
-        CommonModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSlideToggleModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
+],
     templateUrl: './add-species-form.component.html',
     styleUrl: './add-species-form.component.css',
     standalone: true

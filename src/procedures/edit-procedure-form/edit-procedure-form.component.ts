@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, OnChanges, SimpleChanges } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -15,17 +15,16 @@ import { Procedure } from '../../model/Procedure';
 @Component({
     selector: 'app-edit-procedure-form',
     imports: [
-        CommonModule,
-        MatButtonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        MatSlideToggleModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        FormsModule,
-        ReactiveFormsModule
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSlideToggleModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule
+],
     providers: [
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },

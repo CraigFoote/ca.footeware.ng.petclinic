@@ -1,15 +1,17 @@
-<mat-card *ngFor="let booking of bookings" appearance="raised" class="card">
+@for (booking of bookings; track booking) {
+  <mat-card appearance="raised" class="card">
     <mat-card-header>
-        <mat-card-title class="bold" [ngClass]="{'current-date': isCurrentDate(booking.date)}">{{booking.date | date}}</mat-card-title>
+      <mat-card-title class="bold" [ngClass]="{'current-date': isCurrentDate(booking.date)}">{{booking.date | date}}</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <ul>
-            <li>{{booking.pet.name}}</li>
-            <li>{{booking.procedure.name}}</li>
-            <li>Dr. {{booking.vet.lastName}}, {{booking.vet.firstName}}</li>
-        </ul>
+      <ul>
+        <li>{{booking.pet.name}}</li>
+        <li>{{booking.procedure.name}}</li>
+        <li>Dr. {{booking.vet.lastName}}, {{booking.vet.firstName}}</li>
+      </ul>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button color="primary" class="float-right" (click)="editBooking(booking)">Edit</button>
+      <button mat-button color="primary" class="float-right" (click)="editBooking(booking)">Edit</button>
     </mat-card-actions>
-</mat-card>
+  </mat-card>
+}

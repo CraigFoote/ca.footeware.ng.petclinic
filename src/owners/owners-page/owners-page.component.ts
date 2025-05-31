@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,21 +22,20 @@ import { EditOwnerFormComponent } from '../edit-owner-form/edit-owner-form.compo
 @Component({
     selector: 'app-owners-page',
     imports: [
-        MatButtonModule,
-        CommonModule,
-        MatCardModule,
-        MatInputModule,
-        MatFormFieldModule,
-        FormsModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-        MatRadioModule,
-        MatDatepickerModule,
-        MatSelectModule,
-        AddOwnerFormComponent,
-        OwnerCardComponent,
-        EditOwnerFormComponent
-    ],
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatSelectModule,
+    AddOwnerFormComponent,
+    OwnerCardComponent,
+    EditOwnerFormComponent
+],
     providers: [PetService,
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
