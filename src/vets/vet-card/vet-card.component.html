@@ -1,10 +1,10 @@
-@for (vet of vets; track vet) {
-  <mat-card appearance="raised" class="card">
-    <mat-card-header>
-      <mat-card-title class="bold">Dr. {{vet.lastName}}, {{vet.firstName}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-actions>
-      <button mat-button color="primary" class="float-right" (click)="editVet(vet)">Edit</button>
-    </mat-card-actions>
-  </mat-card>
+@for (vet of vets; track vet.id) {
+<mat-card appearance="raised" class="card">
+  <mat-card-header>
+    <mat-card-title class="bold">Dr. {{vet.lastName}}, {{vet.firstName}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <button mat-button color="primary" class="float-right" (click)="editVet(vet)">Edit</button>
+  </mat-card-actions>
+</mat-card>
 }

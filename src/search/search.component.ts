@@ -23,18 +23,18 @@ import { Gender } from '../model/Gender';
 @Component({
     selector: 'app-search',
     imports: [
-    MatInputModule,
-    MatFormFieldModule,
-    MatTabsModule,
-    MatIconModule,
-    FormsModule,
-    MatCardModule,
-    MatButtonModule,
-    MatBadgeModule,
-    MatSlideToggleModule,
-    PetCardComponent,
-    BookingCardComponent
-],
+        MatInputModule,
+        MatFormFieldModule,
+        MatTabsModule,
+        MatIconModule,
+        FormsModule,
+        MatCardModule,
+        MatButtonModule,
+        MatBadgeModule,
+        MatSlideToggleModule,
+        PetCardComponent,
+        BookingCardComponent
+    ],
     providers: [PetService,
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
@@ -51,7 +51,7 @@ export class SearchComponent {
 
     /**
      * Initializes the component by creating a temporary copy of the current bookings.
-     * This allows for any modifications to the bookings list without affecting the original data.
+     * This allows for filtering the bookings list without losing the original.
      */
     ngOnInit() {
         this.tempBookings = [...this.bookings];

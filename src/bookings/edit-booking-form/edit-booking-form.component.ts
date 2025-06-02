@@ -19,17 +19,17 @@ import { Vet } from '../../model/Vet';
 @Component({
     selector: 'app-edit-booking-form',
     imports: [
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSlideToggleModule,
-    MatRadioModule,
-    MatDatepickerModule,
-    MatSelectModule,
-    FormsModule,
-    ReactiveFormsModule
-],
+        MatButtonModule,
+        MatCardModule,
+        MatInputModule,
+        MatFormFieldModule,
+        MatSlideToggleModule,
+        MatRadioModule,
+        MatDatepickerModule,
+        MatSelectModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
     providers: [
         provideNativeDateAdapter(),
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
@@ -58,10 +58,6 @@ export class EditBookingFormComponent implements OnChanges {
         });
     }
 
-    setMode(mode: string) {
-        this.cancelClicked.emit(mode);
-    }
-
     ngOnChanges(changes: SimpleChanges): void {
         if (this.booking && this.procedures && this.pets && this.vets) {
             const selectedProcedure = this.procedures.find(p => p.id === this.booking?.procedure.id);
@@ -79,5 +75,9 @@ export class EditBookingFormComponent implements OnChanges {
 
     updateBooking() {
         this.saveClicked.emit(this.editBookingForm.value);
+    }
+
+    cancel() {
+        this.cancelClicked.emit('list');
     }
 }

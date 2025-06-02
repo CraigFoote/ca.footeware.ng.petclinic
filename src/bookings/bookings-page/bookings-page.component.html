@@ -10,11 +10,11 @@
 }
 
 @if (mode === 'add') {
-<app-add-booking-form [petToBook]="petToBook" [procedures]="procedures" [pets]="pets" [vets]="vets" (saveClicked)="createBooking($event)"
-    (cancelClicked)="setMode('list')" />
+<app-add-booking-form [petToBook]="petToBook" [procedures]="procedures" [pets]="pets" [vets]="vets"
+    (saveClicked)="createBooking($event)" (cancelClicked)="setMode('list')" />
 }
 
 @if (mode === 'edit') {
 <app-edit-booking-form [booking]="booking" [procedures]="procedures" [pets]="pets" [vets]="vets"
-    (saveClicked)="updateBooking($event)" (cancelClicked)="setMode('list')" />
+    (saveClicked)="updateBooking($event)" (cancelClicked)="cancel()" />
 }

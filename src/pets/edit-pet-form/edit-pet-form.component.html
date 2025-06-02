@@ -3,14 +3,13 @@
         <form [formGroup]="editPetForm" (ngSubmit)="updatePet()">
             <mat-form-field class="form-input">
                 <mat-label for="name">Name</mat-label>
-                <input matInput required minlength="1" maxlength="50" id="name" name="name"
-                    formControlName="name" />
+                <input matInput required minlength="1" maxlength="50" id="name" name="name" formControlName="name" />
             </mat-form-field><br />
 
             <mat-form-field class="form-input">
                 <mat-label for="species">Species</mat-label>
                 <mat-select id="species" formControlName="species" required>
-                    @for (species of allSpecies; track species) {
+                    @for (species of allSpecies; track species.id) {
                     <mat-option [value]="species">{{species.name}}</mat-option>
                     }
                 </mat-select>
@@ -26,7 +25,8 @@
 
             <mat-form-field class="form-input">
                 <mat-label for="birthDate">Birth Date</mat-label>
-                <input type="date" matInput id="birthDate" [matDatepicker]="birthDate" formControlName="birthDate" required />
+                <input type="date" matInput id="birthDate" [matDatepicker]="birthDate" formControlName="birthDate"
+                    required />
                 <mat-datepicker-toggle matIconSuffix [for]="birthDate"></mat-datepicker-toggle>
                 <mat-datepicker #birthDate></mat-datepicker>
             </mat-form-field><br />
@@ -34,7 +34,7 @@
             <mat-form-field class="form-input">
                 <mat-label for="owner">Owner</mat-label>
                 <mat-select id="owner" formControlName="owner">
-                    @for (owner of owners; track owner) {
+                    @for (owner of owners; track owner.id) {
                     <mat-option [value]="owner">{{owner.lastName}}, {{owner.firstName}}</mat-option>
                     }
                 </mat-select>

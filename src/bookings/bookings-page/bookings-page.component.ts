@@ -1,8 +1,5 @@
-// Add RxJS imports here
 import { Observable, of } from 'rxjs';
-// Remove map alias from 'rxjs/operators', keep switchMap and catchError if still needed from there (though often imported from 'rxjs' now)
 import { switchMap, catchError } from 'rxjs/operators';
-
 import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -22,12 +19,12 @@ import { EditBookingFormComponent } from '../edit-booking-form/edit-booking-form
 @Component({
     selector: 'app-bookings-page',
     imports: [
-    MatButtonModule,
-    MatCardModule,
-    BookingCardComponent,
-    AddBookingFormComponent,
-    EditBookingFormComponent
-],
+        MatButtonModule,
+        MatCardModule,
+        BookingCardComponent,
+        AddBookingFormComponent,
+        EditBookingFormComponent
+    ],
     providers: [PetService,
         { provide: MAT_DATE_LOCALE, useValue: 'en-CA' },
     ],
@@ -43,8 +40,8 @@ export class BookingsPageComponent implements OnInit {
     pets: Pet[] = [];
     procedures: Procedure[] = [];
     vets: Vet[] = [];
-    petToBook?: Pet; // to hold the pet passed from search
-    bookingToEdit?: Booking; // to hold the booking passed from search
+    petToBook?: Pet;
+    bookingToEdit?: Booking;
 
     constructor(private petService: PetService, private router: Router) {
     }
@@ -54,10 +51,11 @@ export class BookingsPageComponent implements OnInit {
         const state = history.state as any;
         if (state?.petToBook) {
             this.petToBook = state.petToBook;
-            intendedMode = state.mode || 'list';
+            intendedMode = state.mode;
         } else if (state?.bookingToEdit) {
             this.bookingToEdit = state.bookingToEdit;
-            intendedMode = state.mode || 'list';
+            intendedMode = state.mode;
+            console.log('bookingPage oninit bookingToEdit.id=' + this.bookingToEdit?.id);
         }
 
         // fetch all data concurrently
@@ -74,7 +72,7 @@ export class BookingsPageComponent implements OnInit {
             this.vets = results.vets;
 
             // set the mode *after* all data is loaded
-            console.log(intendedMode);
+            this.booking = this.bookingToEdit;
             this.mode = intendedMode;
         });
     }
@@ -88,7 +86,7 @@ export class BookingsPageComponent implements OnInit {
         return this.petService.getAllBookings().pipe(
             switchMap(bookingDTOs => {
                 if (!bookingDTOs || bookingDTOs.length === 0) {
-                    return of([]); // return empty array if no DTOs
+                    return of([]);
                 }
                 const observables = bookingDTOs.map(bookingDTO =>
                     forkJoin({
@@ -108,7 +106,7 @@ export class BookingsPageComponent implements OnInit {
             map(bookings => bookings.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())), // reverse sort
             catchError(error => {
                 console.error('Error fetching bookings:', error);
-                return of([]); // return empty array on error
+                return of([]);
             })
         );
     }
@@ -124,7 +122,7 @@ export class BookingsPageComponent implements OnInit {
                         species: this.petService.getSpeciesById(petDTO.speciesId),
                         owner: this.petService.getOwnerById(petDTO.ownerId)
                     }).pipe(
-                        map(result => { // Use standard map
+                        map(result => {
                             const pet = new Pet(petDTO.name, result.species, petDTO.gender, petDTO.birthDate, result.owner);
                             pet.id = petDTO.id;
                             return pet;
@@ -133,7 +131,7 @@ export class BookingsPageComponent implements OnInit {
                 );
                 return forkJoin(observables);
             }),
-            map(pets => pets.sort((a, b) => a.name.localeCompare(b.name))), // Use standard map
+            map(pets => pets.sort((a, b) => a.name.localeCompare(b.name))),
             catchError(error => {
                 console.error('Error fetching pets:', error);
                 return of([]);
@@ -143,7 +141,7 @@ export class BookingsPageComponent implements OnInit {
 
     private fetchAllProcedures(): Observable<Procedure[]> {
         return this.petService.getAllProcedures().pipe(
-            map(procedures => procedures.sort((a, b) => a.name.localeCompare(b.name))), // Use standard map
+            map(procedures => procedures.sort((a, b) => a.name.localeCompare(b.name))),
             catchError(error => {
                 console.error('Error fetching procedures:', error);
                 return of([]);
@@ -153,7 +151,7 @@ export class BookingsPageComponent implements OnInit {
 
     private fetchAllVets(): Observable<Vet[]> {
         return this.petService.getAllVets().pipe(
-            map(vets => vets.sort((a, b) => a.lastName.localeCompare(b.lastName))), // Use standard map
+            map(vets => vets.sort((a, b) => a.lastName.localeCompare(b.lastName))),
             catchError(error => {
                 console.error('Error fetching vets:', error);
                 return of([]);
@@ -165,7 +163,6 @@ export class BookingsPageComponent implements OnInit {
         if (mode === 'add') {
             this.petToBook = undefined;
         } else if (mode === 'edit') {
-            console.log("clearing this.bookingToEdit", this.bookingToEdit);
             this.bookingToEdit = undefined;
         }
         this.mode = mode;
@@ -189,8 +186,8 @@ export class BookingsPageComponent implements OnInit {
     }
 
     editBooking(booking: Booking) {
-
-        this.router.navigate(['/bookings'], { state: { bookingToEdit: booking, mode: 'edit' } });
+        this.booking = booking;
+        this.setMode('edit');
     }
 
     updateBooking(booking: Booking) {
@@ -203,6 +200,7 @@ export class BookingsPageComponent implements OnInit {
             );
             this.petService.updateBooking(this.booking.id, bookingDTO).subscribe((message: string) => {
                 this.refreshAllData();
+                this.router.navigate(['/bookings']);
                 this.setMode('list');
             });
         }
@@ -220,5 +218,10 @@ export class BookingsPageComponent implements OnInit {
             this.procedures = results.procedures;
             this.vets = results.vets;
         });
+    }
+
+    cancel() {
+        this.router.navigate(['/bookings']);
+        this.setMode('list');
     }
 }

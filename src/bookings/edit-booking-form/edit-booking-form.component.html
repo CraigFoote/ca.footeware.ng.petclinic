@@ -12,7 +12,7 @@
             <mat-form-field class="form-input">
                 <mat-label for="pet">Pet</mat-label>
                 <mat-select id="pet" formControlName="pet" required>
-                    @for (pet of pets; track pet) {
+                    @for (pet of pets; track pet.id) {
                     <mat-option [value]="pet">{{pet.name}}</mat-option>
                     }
                 </mat-select>
@@ -21,7 +21,7 @@
             <mat-form-field class="form-input">
                 <mat-label for="procedure">Procedure</mat-label>
                 <mat-select id="procedure" formControlName="procedure" required>
-                    @for (procedure of procedures; track procedure) {
+                    @for (procedure of procedures; track procedure.id) {
                     <mat-option [value]="procedure">{{procedure.name}}</mat-option>
                     }
                 </mat-select>
@@ -30,7 +30,7 @@
             <mat-form-field class="form-input">
                 <mat-label for="vet">Vet</mat-label>
                 <mat-select id="vet" formControlName="vet" required>
-                    @for (vet of vets; track vet) {
+                    @for (vet of vets; track vet.id) {
                     <mat-option [value]="vet">Dr. {{vet.lastName}}, {{vet.firstName}}</mat-option>
                     }
                 </mat-select>
@@ -38,7 +38,7 @@
 
             <button mat-button type="submit" class="float-right" color="primary"
                 [disabled]="!editBookingForm.valid">Save</button>
-            <button mat-button type="reset" class="float-right" color="accent" (click)="setMode('list')">Cancel</button>
+            <button mat-button type="reset" class="float-right" color="accent" (click)="cancel()">Cancel</button>
         </form>
     </mat-card-content>
 </mat-card>
