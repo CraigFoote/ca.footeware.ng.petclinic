@@ -62,9 +62,9 @@ export class PetsPageComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        let intendedMode = 'list';
+        let intendedMode = 'list'; //default
         const state = history.state as any;
-        if (state?.petToEdit) {
+        if (state?.petToEdit && state?.mode) {
             this.petToEdit = state.petToEdit;
             intendedMode = state.mode;
         }
